@@ -1,0 +1,78 @@
+
+@prefix artinq: <https://humanum-p8.fr/omk_artificialinquiries/onto/artinq#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix o: <http://omeka.org/s/vocabs/o#> .
+
+# Description du vocabulaire
+<https://humanum-p8.fr/omk_artificialinquiries/onto/artinq#>
+    a owl:Ontology ;
+    dcterms:title "Artificial Inquiries - Exercice 2.a" .
+
+# CLASSES
+
+artinq:Utilisateur a rdfs:Class ;
+    rdfs:label "Utilisateur" ;
+    rdfs:domain o:Resource ;
+    vs:term_status "experimental" .
+
+artinq:Tache a rdfs:Class ;
+    rdfs:label "Tâche" ;
+    rdfs:domain o:Resource ;
+    vs:term_status "experimental" .
+
+# PROPRIETES
+
+artinq:idUtilisateur a rdf:Property ;
+    rdfs:label "Identifiant utilisateur" ;
+    rdfs:domain artinq:Utilisateur ;
+    vs:term_status "experimental" .
+
+artinq:nom a rdf:Property ;
+    rdfs:label "Nom" ;
+    rdfs:domain artinq:Utilisateur ;
+    vs:term_status "experimental" .
+
+artinq:idTache a rdf:Property ;
+    rdfs:label "Identifiant tâche" ;
+    rdfs:domain artinq:Tache ;
+    vs:term_status "experimental" .
+
+artinq:nomTache a rdf:Property ;
+    rdfs:label "Nom de la tâche" ;
+    rdfs:domain artinq:Tache ;
+    vs:term_status "experimental" .
+
+artinq:frequence a rdf:Property ;
+    rdfs:label "Fréquence" ;
+    rdfs:domain artinq:Tache ;
+    vs:term_status "experimental" .
+
+artinq:appreciation a rdf:Property ;
+    rdfs:label "Appréciation" ;
+    rdfs:domain artinq:Tache ;
+    vs:term_status "experimental" .
+
+artinq:tempsNecessaire a rdf:Property ;
+    rdfs:label "Temps nécessaire" ;
+    rdfs:domain artinq:Tache ;
+    vs:term_status "experimental" .
+
+artinq:procrastination a rdf:Property ;
+    rdfs:label "Procrastination" ;
+    rdfs:domain artinq:Tache ;
+    vs:term_status "experimental" .
+
+artinq:niveauExpertise a rdf:Property ;
+    rdfs:label "Niveau d'expertise" ;
+    rdfs:domain artinq:Tache ;
+    vs:term_status "experimental" .
+
+artinq:realise a rdf:Property ;
+    rdfs:label "Réalise" ;
+    rdfs:domain artinq:Utilisateur ;
+    rdfs:range artinq:Tache ;
+    vs:term_status "experimental" .
