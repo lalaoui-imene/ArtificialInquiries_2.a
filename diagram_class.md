@@ -1,6 +1,6 @@
-# Diagramme de classes – Exercice 2a
+# Diagramme de classes – Exercice 2.a
 
-Ce diagramme représente les données nécessaires pour numériser l'exercice 2a « All the Things You Do ».
+Ce diagramme représente les données nécessaires pour numériser l'exercice 2.a « All the Things You Do ».
 
 ```mermaid
 classDiagram
