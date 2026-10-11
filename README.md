@@ -1,8 +1,8 @@
-# Artificial Inquiries – Exercice 2a : All the Things You Do
+# Artificial Inquiries – Exercice 2.a : All the Things You Do
 
 # Description de l'exercice
 
-L'exercice 2a « All the Things You Do » consiste à identifier et à lister les différentes tâches réalisées dans le cadre de son activité professionnelle.
+L'exercice 2.a « All the Things You Do » consiste à identifier et à lister les différentes tâches réalisées dans le cadre de son activité professionnelle.
 
 L'objectif est d'obtenir une vue d'ensemble de ses pratiques professionnelles avant d'étudier la place que les LLM peuvent y occuper.
 
