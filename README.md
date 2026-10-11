@@ -1,4 +1,8 @@
 # Artificial Inquiries – Exercice 2.a : All the Things You Do
+## Capture de l'exercice
+<img width="464" height="458" alt="image" src="https://github.com/user-attachments/assets/716ecc5a-3c58-494c-8a57-cd1d46df30b8" />
+<img width="340" height="477" alt="image" src="https://github.com/user-attachments/assets/f56d2d3b-11b9-4c50-9266-905441a139f9" />
+
 
 # Description de l'exercice
 
