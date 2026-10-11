@@ -10,7 +10,7 @@
 # Description du vocabulaire
 <https://humanum-p8.fr/omk_artificialinquiries/onto/artinq#>
     a owl:Ontology ;
-    dcterms:title "Artificial Inquiries - Exercice 2.a" .
+    dcterms:title "Artificial Inquiries" .
 
 # CLASSES
 
