@@ -43,3 +43,8 @@ Technologies envisagées :
 - une base de données pour enregistrer les tâches.
 
 Cette solution permettra de transformer l'exercice papier en un outil numérique interactif et facilement utilisable.
+
+## Accéder à l'application
+
+ [Cliquez ici pour ouvrir Artificial Inquiries](https://lalaoui-imene.github.io/ArtificialInquiries_2.a/response.html)
+
