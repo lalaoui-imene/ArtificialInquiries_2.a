@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,24 +11,77 @@
     color: #17243b;
     background: #f3f6fb;
 }
-* { box-sizing: border-box; }
-body { margin: 0; }
-[hidden] { display: none !important; }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
 
 header {
     background: #172c53;
     color: white;
     padding: 32px max(24px, calc((100% - 1100px)/2));
 }
-header h1 { margin: 0 0 12px; font-size: 30px; }
-header p { margin: 0; color: #cbd9f2; }
+
+header h1 {
+    margin: 0 0 12px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 0;
+    color: #cbd9f2;
+}
 
 main {
     max-width: 1100px;
     margin: 30px auto;
     padding: 0 20px;
 }
-.intro { color: #526079; margin-bottom: 24px; }
+
+.intro {
+    color: #526079;
+    margin-bottom: 24px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.tab {
+    padding: 14px 22px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: #2356a4;
+    color: white;
+    border-color: #2356a4;
+}
+
+.panel {
+    display: none;
+}
+
+.panel.active {
+    display: block;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 20px;
+}
 
 .card {
     background: white;
@@ -38,7 +90,11 @@ main {
     border: 1px solid #dfe5ee;
     box-shadow: 0 4px 18px #14274a09;
 }
-.card h2 { margin: 0 0 20px; font-size: 21px; }
+
+.card h2 {
+    margin: 0 0 20px;
+    font-size: 21px;
+}
 
 label {
     display: block;
@@ -46,6 +102,7 @@ label {
     font-weight: bold;
     font-size: 14px;
 }
+
 input, select {
     width: 100%;
     padding: 12px;
@@ -53,7 +110,11 @@ input, select {
     border-radius: 9px;
     font-size: 15px;
 }
-button { font-family: inherit; cursor: pointer; }
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
 
 .primary {
     background: #2356a4;
@@ -64,103 +125,35 @@ button { font-family: inherit; cursor: pointer; }
     font-weight: bold;
     margin-top: 20px;
 }
-.secondary {
-    background: white;
-    color: #2356a4;
-    border: 1px solid #cbd5e1;
-    padding: 12px 18px;
-    border-radius: 9px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-button:disabled { opacity: .55; cursor: not-allowed; }
 
-.auth-card { max-width: 850px; margin: 20px auto; }
-.auth-card h2 { font-size: 25px; }
-.auth-note {
-    color: #526079;
-    font-size: 14px;
-    line-height: 1.6;
-}
-.auth-choice {
-    border: 1px solid #dfe5ee;
-    border-radius: 12px;
-    padding: 14px;
-    background: #f8fafc;
-    margin: 12px 0;
-}
-.auth-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.auth-error {
-    color: #a11b1b;
-    margin-top: 12px;
-    white-space: pre-wrap;
-}
-.auth-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    background: #eaf1ff;
-    padding: 12px 16px;
-    border-radius: 10px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-}
-.auth-banner button {
-    border: 1px solid #cbd5e1;
-    background: white;
-    border-radius: 8px;
-    padding: 9px 14px;
+button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
 }
 
-.tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 24px;
-}
-.tab {
-    padding: 14px 22px;
-    border-radius: 10px;
-    border: 1px solid #cbd5e1;
-    background: white;
-    font-size: 16px;
-    font-weight: bold;
-}
-.tab.active {
-    background: #2356a4;
-    color: white;
-    border-color: #2356a4;
-}
-.panel { display: none; }
-.panel.active { display: block; }
-
-.layout {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 20px;
-}
 .record {
     border: 1px solid #e3e8f0;
     padding: 17px;
     margin-bottom: 12px;
     border-radius: 11px;
 }
-.record h3 { margin: 0 0 10px; }
+
+.record h3 {
+    margin: 0 0 10px;
+}
+
 .record p {
     margin: 7px 0;
     color: #526079;
     font-size: 14px;
 }
+
 .actions {
     display: flex;
     gap: 10px;
     margin-top: 14px;
 }
+
 .actions button {
     padding: 9px 14px;
     border-radius: 8px;
@@ -168,8 +161,14 @@ button:disabled { opacity: .55; cursor: not-allowed; }
     border: 1px solid #cbd5e1;
     background: white;
 }
-.actions .edit { color: #2356a4; }
-.actions .delete { color: #b42318; }
+
+.actions .edit {
+    color: #2356a4;
+}
+
+.actions .delete {
+    color: #b42318;
+}
 
 .empty {
     padding: 28px;
@@ -178,6 +177,7 @@ button:disabled { opacity: .55; cursor: not-allowed; }
     border: 1px dashed #cbd5e1;
     border-radius: 10px;
 }
+
 .pill {
     display: inline-block;
     background: #eaf1ff;
@@ -187,7 +187,12 @@ button:disabled { opacity: .55; cursor: not-allowed; }
     font-size: 13px;
     margin-bottom: 10px;
 }
-.count { font-size: 14px; color: #64748b; }
+
+.count {
+    font-size: 14px;
+    color: #64748b;
+}
+
 .notice {
     background: #fff7e8;
     border: 1px solid #f6d6a0;
@@ -199,13 +204,31 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 }
 
 @media(max-width:760px) {
-    .layout { grid-template-columns: 1fr; }
-    header { padding: 25px; }
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 25px;
+    }
 }
+
+.auth-card { max-width: 850px; margin: 20px auto; }
+.auth-card h2 { font-size: 25px; }
+.auth-note { color:#526079; font-size:14px; line-height:1.6; }
+.auth-actions { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.secondary {background:white;color:#2356a4;border:1px solid #cbd5e1;padding:12px 18px;border-radius:9px;font-weight:bold;margin-top:20px}
+.auth-banner { display:flex; align-items:center; justify-content:space-between; gap:15px; background:#eaf1ff; padding:12px 16px; border-radius:10px; margin-bottom:18px; flex-wrap:wrap; }
+.auth-banner button {border:1px solid #cbd5e1;background:white;border-radius:8px;padding:9px 14px}
+.auth-error {color:#a11b1b; margin-top:12px;white-space:pre-wrap}
+.auth-choice {border:1px solid #dfe5ee;border-radius:12px;padding:14px;background:#f8fafc;margin:12px 0}
+[hidden] { display:none !important; }
+
 </style>
 </head>
 
 <body>
+
 <header>
     <h1>Artificial Inquiries</h1>
     <p>
@@ -216,276 +239,216 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 
 <main>
 
-<!-- PAGE DE CONNEXION -->
-
 <section id="login-screen" class="card auth-card">
-    <h2>Connexion</h2>
+  <h2>Connexion</h2>
+  <p class="auth-note">Connecte-toi à ton Omeka S avec tes clés API, ou consulte une démonstration sans compte. Les clés ne sont jamais publiées dans GitHub et ne sont pas sauvegardées dans le navigateur.</p>
+  <form id="login-form">
+    <label for="api-address">Adresse de l'API Omeka S</label>
+    <input id="api-address" type="url" value="http://localhost/omeka-s/api" required>
+    <div class="auth-choice"><strong>Omeka S — clé API</strong><p class="auth-note">Pour utiliser ton Omeka S installé sur WampServer, ouvre cette interface depuis ton serveur local. Sur GitHub Pages, l'accès à une API HTTP locale peut être bloqué par le navigateur, et le professeur n'a pas accès à ton ordinateur.</p><p class="auth-note"><a href="http://localhost/artificial-inquiries/response.html" id="local-app-link">Ouvrir la version locale (sur mon ordinateur)</a></p></div>
+    <label for="key-identity">key_identity</label>
+    <input id="key-identity" type="text" autocomplete="off" placeholder="Identifiant de la clé API">
+    <label for="key-credential">key_credential</label>
+    <input id="key-credential" type="password" autocomplete="off" placeholder="Clé secrète API">
+    <div class="auth-actions">
+      <button class="primary" type="submit">Se connecter à Omeka S</button>
+      <button class="secondary" type="button" id="readonly-login">Continuer en lecture seule</button>
+      <button class="secondary" type="button" id="demo-login">Tester la démonstration CRUD</button>
+    </div>
+    <p class="auth-note">La lecture seule tente de consulter l'API publique. La démonstration fonctionne sans serveur, avec des données fictives enregistrées dans ce navigateur.</p>
+    <div id="login-error" class="auth-error" role="alert" aria-live="polite"></div>
+  </form>
+</section>
+<div id="app-screen" hidden>
+  <div class="auth-banner"><span id="session-label">Session</span><button type="button" id="logout-button">Se déconnecter</button></div>
+<p class="intro">
+    Interface CRUD : créer, consulter, modifier et supprimer
+    les informations de l'exercice.
+</p>
 
-    <p class="auth-note">
-        Connecte-toi à ton Omeka S avec tes clés API,
-        ou utilise la démonstration sans compte.
-        Les clés ne sont pas publiées sur GitHub.
-    </p>
+<div class="tabs">
+    <button class="tab active" data-tab="users">
+        Utilisateurs
+    </button>
 
-    <form id="login-form">
-        <label for="api-address">
-            Adresse de l'API Omeka S
-        </label>
-        <input
-            id="api-address"
-            type="url"
-            value="http://localhost/omeka-s/api"
-            required
-        >
+    <button class="tab" data-tab="tasks">
+        Tâches
+    </button>
+</div>
 
-        <div class="auth-choice">
-            <strong>Omeka S — clé API</strong>
-            <p class="auth-note">
-                Sur GitHub Pages, localhost désigne
-                l'ordinateur du visiteur, pas le tien.
-            </p>
+<!-- UTILISATEURS -->
+
+<section id="users" class="panel active">
+    <div class="layout">
+
+        <div class="card">
+            <h2>Ajouter un utilisateur</h2>
+
+            <form id="user-form">
+                <label for="user-name">
+                    Nom de l'utilisateur *
+                </label>
+
+                <input
+                    id="user-name"
+                    placeholder="Ex. Imene"
+                    required
+                >
+
+                <button
+                    id="user-submit"
+                    class="primary"
+                    type="submit"
+                    disabled
+                >
+                    Ajouter
+                </button>
+            </form>
         </div>
 
-        <label for="key-identity">key_identity</label>
-        <input
-            id="key-identity"
-            type="text"
-            autocomplete="off"
-            placeholder="Identifiant de la clé API"
-        >
+        <div class="card">
+            <h2>
+                Liste des utilisateurs
+                <span class="count" id="user-count">(0)</span>
+            </h2>
 
-        <label for="key-credential">key_credential</label>
-        <input
-            id="key-credential"
-            type="password"
-            autocomplete="off"
-            placeholder="Clé secrète API"
-        >
-
-        <div class="auth-actions">
-            <button class="primary" type="submit">
-                Se connecter à Omeka S
-            </button>
-
-            <button
-                class="secondary"
-                type="button"
-                id="readonly-login"
-            >
-                Continuer en lecture seule
-            </button>
-
-            <button
-                class="secondary"
-                type="button"
-                id="demo-login"
-            >
-                Tester la démonstration CRUD
-            </button>
+            <div id="user-list"></div>
         </div>
 
-        <p class="auth-note">
-            La démonstration utilise des données fictives.
-            Les modifications restent dans ce navigateur.
-        </p>
-
-        <div
-            id="login-error"
-            class="auth-error"
-            role="alert"
-            aria-live="polite"
-        ></div>
-    </form>
+    </div>
 </section>
 
-<!-- APPLICATION APRÈS CONNEXION -->
+<!-- TÂCHES -->
 
-<div id="app-screen" hidden>
+<section id="tasks" class="panel">
+    <div class="layout">
 
-    <div class="auth-banner">
-        <span id="session-label">Session</span>
-        <button type="button" id="logout-button">
-            Se déconnecter
-        </button>
-    </div>
+        <div class="card">
+            <h2>Ajouter une tâche</h2>
 
-    <p class="intro">
-        Interface CRUD : créer, consulter, modifier et
-        supprimer les informations de l'exercice.
-    </p>
+            <form id="task-form">
 
-    <div class="tabs">
-        <button class="tab active" data-tab="users">
-            Utilisateurs
-        </button>
-        <button class="tab" data-tab="tasks">
-            Tâches
-        </button>
-    </div>
+                <label for="task-name">
+                    Nom de la tâche *
+                </label>
 
-    <!-- UTILISATEURS -->
+                <input
+                    id="task-name"
+                    required
+                    placeholder="Ex. Rédiger des e-mails"
+                >
 
-    <section id="users" class="panel active">
-        <div class="layout">
-            <div class="card">
-                <h2>Ajouter un utilisateur</h2>
+                <label for="task-user">
+                    Utilisateur *
+                </label>
 
-                <form id="user-form">
-                    <label for="user-name">
-                        Nom de l'utilisateur *
-                    </label>
+                <select id="task-user" required></select>
 
-                    <input
-                        id="user-name"
-                        placeholder="Ex. Imene"
-                        required
-                    >
+                <label for="task-frequency">
+                    Fréquence
+                </label>
 
-                    <button
-                        id="user-submit"
-                        class="primary"
-                        type="submit"
-                        disabled
-                    >
-                        Ajouter
-                    </button>
-                </form>
-            </div>
+                <select id="task-frequency">
+                    <option>Quotidienne</option>
+                    <option>Hebdomadaire</option>
+                    <option>Mensuelle</option>
+                    <option>Occasionnelle</option>
+                </select>
 
-            <div class="card">
-                <h2>
-                    Liste des utilisateurs
-                    <span class="count" id="user-count">(0)</span>
-                </h2>
-                <div id="user-list"></div>
-            </div>
+                <label for="task-appreciation">
+                    Appréciation
+                </label>
+
+                <select id="task-appreciation">
+                    <option>J'aime cette tâche</option>
+                    <option>Neutre</option>
+                    <option>Je n'aime pas cette tâche</option>
+                </select>
+
+                <label for="task-time">
+                    Temps nécessaire (minutes)
+                </label>
+
+                <input
+                    id="task-time"
+                    type="number"
+                    min="0"
+                    value="30"
+                >
+
+                <label for="task-procrastination">
+                    Procrastination
+                </label>
+
+                <select id="task-procrastination">
+                    <option>Non</option>
+                    <option>Oui</option>
+                </select>
+
+                <label for="task-expertise">
+                    Niveau d'expertise
+                </label>
+
+                <select id="task-expertise">
+                    <option>Débutant</option>
+                    <option>Intermédiaire</option>
+                    <option>Avancé</option>
+                    <option>Expert</option>
+                </select>
+
+                <button
+                    id="task-submit"
+                    class="primary"
+                    type="submit"
+                    disabled
+                >
+                    Ajouter
+                </button>
+
+            </form>
         </div>
-    </section>
 
-    <!-- TÂCHES -->
+        <div class="card">
+            <h2>
+                Liste des tâches
+                <span class="count" id="task-count">(0)</span>
+            </h2>
 
-    <section id="tasks" class="panel">
-        <div class="layout">
-            <div class="card">
-                <h2>Ajouter une tâche</h2>
-
-                <form id="task-form">
-                    <label for="task-name">
-                        Nom de la tâche *
-                    </label>
-                    <input
-                        id="task-name"
-                        placeholder="Ex. Rédiger des e-mails"
-                        required
-                    >
-
-                    <label for="task-user">Utilisateur *</label>
-                    <select id="task-user" required></select>
-
-                    <label for="task-frequency">Fréquence</label>
-                    <select id="task-frequency">
-                        <option>Quotidienne</option>
-                        <option>Hebdomadaire</option>
-                        <option>Mensuelle</option>
-                        <option>Occasionnelle</option>
-                    </select>
-
-                    <label for="task-appreciation">
-                        Appréciation
-                    </label>
-                    <select id="task-appreciation">
-                        <option>J'aime cette tâche</option>
-                        <option>Neutre</option>
-                        <option>Je n'aime pas cette tâche</option>
-                    </select>
-
-                    <label for="task-time">
-                        Temps nécessaire (minutes)
-                    </label>
-                    <input
-                        id="task-time"
-                        type="number"
-                        min="0"
-                        value="30"
-                    >
-
-                    <label for="task-procrastination">
-                        Procrastination
-                    </label>
-                    <select id="task-procrastination">
-                        <option>Non</option>
-                        <option>Oui</option>
-                    </select>
-
-                    <label for="task-expertise">
-                        Niveau d'expertise
-                    </label>
-                    <select id="task-expertise">
-                        <option>Débutant</option>
-                        <option>Intermédiaire</option>
-                        <option>Avancé</option>
-                        <option>Expert</option>
-                    </select>
-
-                    <button
-                        id="task-submit"
-                        class="primary"
-                        type="submit"
-                        disabled
-                    >
-                        Ajouter
-                    </button>
-                </form>
-            </div>
-
-            <div class="card">
-                <h2>
-                    Liste des tâches
-                    <span class="count" id="task-count">(0)</span>
-                </h2>
-                <div id="task-list"></div>
-            </div>
+            <div id="task-list"></div>
         </div>
-    </section>
 
-    <div class="notice" id="api-status"></div>
+    </div>
+</section>
+
+<div class="notice" id="api-status">
+    Chargement des données depuis Omeka S...
+</div>
+
 </div>
 </main>
 
 <script>
 'use strict';
-
 const $ = id => document.getElementById(id);
-
 const CLASSE_UTILISATEUR = 106;
 const CLASSE_TACHE = 107;
 const DEMO_STORAGE = 'artificial_inquiries_demo_2a_v1';
-
-let mode = null;
+let mode = null; // omeka, readonly, demo
 let apiBase = '';
 let identity = '';
 let credential = '';
-
-let db = { users: [], tasks: [] };
+let db = {users: [], tasks: []};
 let rawUsers = [];
 let rawTasks = [];
 let propertyIds = {};
 
-// OUTILS
-
 function element(tag, texte, classe) {
     const el = document.createElement(tag);
-    if (texte !== undefined) {
-        el.textContent = String(texte);
-    }
+    if (texte !== undefined) el.textContent = String(texte);
     if (classe) el.className = classe;
     return el;
 }
-
-function informer(message) {
-    $('api-status').textContent = message;
-}
-
+function informer(message) { $('api-status').textContent = message; }
 function boutonAction(texte, classe, callback) {
     const bouton = element('button', texte, classe);
     bouton.type = 'button';
@@ -493,997 +456,312 @@ function boutonAction(texte, classe, callback) {
     bouton.addEventListener('click', callback);
     return bouton;
 }
-
-function valeur(item, propriete, defaut = '') {
-    return item[propriete]?.[0]?.['@value'] ?? defaut;
-}
-
-function estDeClasse(item, classe) {
-    return Number(
-        item['o:resource_class']?.['o:id']
-    ) === classe;
-}
-
-// DONNÉES DE DÉMONSTRATION
-
+function valeur(item, propriete, defaut='') { return item[propriete]?.[0]?.['@value'] ?? defaut; }
+function estDeClasse(item, classe) { return Number(item['o:resource_class']?.['o:id']) === classe; }
 function demoInitial() {
-    return {
-        users: [
-            { id: '2', name: 'imene' }
-        ],
-        tasks: [
-            {
-                id: '3',
-                name: 'Rédiger des e-mails',
-                userId: '2',
-                frequency: 'Quotidienne',
-                appreciation: "J'aime cette tâche",
-                time: 30,
-                procrastination: 'Non',
-                expertise: 'Débutant'
-            }
-        ]
-    };
+    return {users:[{id:'2',name:'imene'}],tasks:[{id:'3',name:'Rédiger des e-mails',userId:'2',frequency:'Quotidienne',appreciation:"J'aime cette tâche",time:30,procrastination:'Non',expertise:'Débutant'}]};
 }
-
 function demoLoad() {
-    try {
-        const saved = localStorage.getItem(DEMO_STORAGE);
-        return saved ? JSON.parse(saved) : demoInitial();
-    } catch {
-        return demoInitial();
-    }
+    try { const saved=localStorage.getItem(DEMO_STORAGE); return saved ? JSON.parse(saved) : demoInitial(); }
+    catch { return demoInitial(); }
 }
-
-function demoSave() {
-    localStorage.setItem(DEMO_STORAGE, JSON.stringify(db));
-}
-
-function demoNextId() {
-    const ids = [
-        ...db.users.map(x => Number(x.id)),
-        ...db.tasks.map(x => Number(x.id))
-    ];
-    return String(Math.max(0, ...ids) + 1);
-}
-
+function demoSave() { localStorage.setItem(DEMO_STORAGE, JSON.stringify(db)); }
+function demoNextId() { return String(Math.max(0,...db.users.map(x=>Number(x.id)),...db.tasks.map(x=>Number(x.id)))+1); }
 function updateButtons() {
-    const readonly = mode === 'readonly' || !mode;
-    $('user-submit').disabled = readonly;
-    $('task-submit').disabled =
-        readonly || !db.users.length;
+    $('user-submit').disabled = mode === 'readonly' || !mode;
+    $('task-submit').disabled = mode === 'readonly' || !mode || !db.users.length;
 }
-
 function showApp(label) {
     $('login-screen').hidden = true;
     $('app-screen').hidden = false;
     $('session-label').textContent = label;
-    render();
+    updateButtons(); render();
 }
-
-// COMMUNICATION AVEC OMEKA S
-
-function apiUrl(path, authenticated = true) {
-    const url = new URL(
-        apiBase.replace(/\/+$/, '') + '/' +
-        path.replace(/^\//, '')
-    );
-
+function apiUrl(path, authenticated=true) {
+    const url = new URL(apiBase.replace(/\/+$/,'') + '/' + path.replace(/^\//,''));
     if (authenticated && mode === 'omeka') {
         url.searchParams.set('key_identity', identity);
         url.searchParams.set('key_credential', credential);
     }
-
     return url.toString();
 }
-
-async function apiRequest(
-    path,
-    method = 'GET',
-    body = null,
-    authenticated = true
-) {
+async function apiRequest(path, method='GET', body=null, authenticated=true) {
     let response;
-
     try {
-        response = await fetch(
-            apiUrl(path, authenticated),
-            {
-                method,
-                cache: 'no-store',
-                headers: body === null
-                    ? {}
-                    : { 'Content-Type': 'application/json' },
-                body: body === null
-                    ? undefined
-                    : JSON.stringify(body)
-            }
-        );
+        response = await fetch(apiUrl(path,authenticated), {
+            method, cache:'no-store',
+            headers: body === null ? {} : {'Content-Type':'application/json'},
+            body: body === null ? undefined : JSON.stringify(body)
+        });
     } catch (err) {
-        throw new Error(
-            'API inaccessible depuis ce navigateur. ' +
-            'Vérifie le serveur, HTTPS et CORS. ' +
-            err.message
-        );
+        throw new Error('API inaccessible : vérifie que WampServer fonctionne, que l’adresse est correcte et que le navigateur autorise la requête (CORS). ' + err.message);
     }
-
-    const text = await response.text();
-    let result = null;
-
-    try {
-        result = text ? JSON.parse(text) : null;
-    } catch {
-        // Le serveur peut renvoyer une page HTML d'erreur.
-    }
-
-    if (!response.ok) {
-        throw new Error(
-            result?.errors?.[0]?.message ||
-            result?.error ||
-            `HTTP ${response.status}`
-        );
-    }
-
+    let result=null;
+    const text=await response.text();
+    try {result=text ? JSON.parse(text) : null;} catch { /* error may be HTML */ }
+    if (!response.ok) throw new Error(result?.errors?.[0]?.message || result?.error || `HTTP ${response.status}`);
     return result;
 }
-
 async function allItems() {
-    const all = [];
-
-    for (let page = 1; page <= 20; page++) {
-        const data = await apiRequest(
-            `items?per_page=100&page=${page}`
-        );
-
-        if (!Array.isArray(data)) {
-            throw new Error('Réponse API inattendue.');
-        }
-
+    let all=[];
+    for (let page=1; page<=20; page++) {
+        const data=await apiRequest(`items?per_page=100&page=${page}`);
+        if (!Array.isArray(data)) throw new Error('Réponse API inattendue.');
         all.push(...data);
-
-        if (data.length < 100) break;
+        if (data.length<100) break;
     }
-
     return all;
 }
-
-// CHARGEMENT DES DONNÉES
-
 async function chargerDonneesOmeka() {
     if (mode === 'demo') {
-        db = demoLoad();
-        render();
-
-        informer(
-            'Mode démonstration : données enregistrées ' +
-            'uniquement dans ce navigateur, ' +
-            'sans synchronisation Omeka S.'
-        );
+        db=demoLoad(); render(); updateButtons();
+        informer('Mode démonstration : données enregistrées uniquement dans ce navigateur, sans synchronisation Omeka S.');
         return;
     }
-
     informer('Chargement des ressources Omeka S...');
-
-    const elements = await allItems();
-
-    rawUsers = elements.filter(item =>
-        estDeClasse(item, CLASSE_UTILISATEUR)
-    );
-
-    rawTasks = elements.filter(item =>
-        estDeClasse(item, CLASSE_TACHE)
-    );
-
-    db.users = rawUsers.map(item => ({
-        id: String(item['o:id']),
-        name: valeur(
-            item,
-            'artinq:nom',
-            item['o:title'] || ''
-        )
-    }));
-
-    db.tasks = rawTasks.map(item => {
-        const linked = rawUsers.find(user =>
-            (user['artinq:realise'] || []).some(link =>
-                Number(
-                    link.value_resource_id ?? link['o:id']
-                ) === Number(item['o:id'])
-            )
-        );
-
-        const reverse =
-            item['@reverse']?.['artinq:realise']?.[0];
-
-        return {
-            id: String(item['o:id']),
-            name: valeur(
-                item,
-                'artinq:nomTache',
-                item['o:title'] || ''
-            ),
-            userId: String(
-                linked?.['o:id'] ??
-                reverse?.value_resource_id ??
-                reverse?.['o:id'] ??
-                ''
-            ),
-            frequency: valeur(
-                item, 'artinq:frequence'
-            ),
-            appreciation: valeur(
-                item, 'artinq:appreciation'
-            ),
-            time: Number(
-                valeur(item, 'artinq:tempsNecessaire', 0)
-            ),
-            procrastination: valeur(
-                item, 'artinq:procrastination'
-            ),
-            expertise: valeur(
-                item, 'artinq:niveauExpertise'
-            )
-        };
+    const elements=await allItems();
+    rawUsers=elements.filter(x=>estDeClasse(x,CLASSE_UTILISATEUR));
+    rawTasks=elements.filter(x=>estDeClasse(x,CLASSE_TACHE));
+    db.users=rawUsers.map(item=>({id:String(item['o:id']),name:valeur(item,'artinq:nom',item['o:title']||'')}));
+    db.tasks=rawTasks.map(item=>{
+        const linked=rawUsers.find(user=>(user['artinq:realise']||[]).some(link=>Number(link.value_resource_id ?? link['o:id'])===Number(item['o:id'])));
+        const reverse=item['@reverse']?.['artinq:realise']?.[0];
+        return {id:String(item['o:id']),name:valeur(item,'artinq:nomTache',item['o:title']||''),
+            userId:String(linked?.['o:id'] ?? reverse?.value_resource_id ?? reverse?.['o:id'] ?? ''),
+            frequency:valeur(item,'artinq:frequence'),appreciation:valeur(item,'artinq:appreciation'),
+            time:Number(valeur(item,'artinq:tempsNecessaire',0)),procrastination:valeur(item,'artinq:procrastination'),
+            expertise:valeur(item,'artinq:niveauExpertise')};
     });
-
-    render();
-
-    informer(
-        `Omeka S : ${db.users.length} utilisateur(s), ` +
-        `${db.tasks.length} tâche(s). ` +
-        (mode === 'readonly'
-            ? 'Lecture seule.'
-            : 'Connexion API active.')
-    );
+    render();updateButtons();
+    informer(`Omeka S : ${db.users.length} utilisateur(s), ${db.tasks.length} tâche(s). ${mode==='readonly'?'Lecture seule.':'Écriture via API activée pour les ressources autorisées.'}`);
 }
-
-// PROPRIÉTÉS OMEKA S
-
+function propValue(value) { return [{type:'literal','@value':String(value)}]; }
 async function resolveProperty(term) {
-    if (propertyIds[term]) {
-        return propertyIds[term];
-    }
-
-    const list = await apiRequest(
-        'properties?term=' + encodeURIComponent(term)
-    );
-
-    const match = Array.isArray(list)
-        ? list.find(x => x['o:term'] === term)
-        : null;
-
-    if (!match) {
-        throw new Error(
-            'Propriété absente : ' + term
-        );
-    }
-
-    propertyIds[term] = match['o:id'];
-    return match['o:id'];
+    if (propertyIds[term]) return propertyIds[term];
+    const list=await apiRequest('properties?term='+encodeURIComponent(term));
+    const match=Array.isArray(list) ? list.find(x=>x['o:term']===term) : null;
+    if (!match) throw new Error('Propriété '+term+' absente de cette instance Omeka S. Vérifie le vocabulaire artinq.');
+    propertyIds[term]=match['o:id']; return match['o:id'];
 }
-
 async function omekaPayload(fields, classId) {
-    const payload = {
-        'o:resource_class': { 'o:id': classId },
-        'o:is_public': true
-    };
-
-    for (const [term, value] of Object.entries(fields)) {
-        const propertyId = await resolveProperty(term);
-
-        payload[term] = [{
-            type: 'literal',
-            property_id: propertyId,
-            '@value': String(value)
-        }];
+    const payload={'o:resource_class':{'o:id':classId},'o:is_public':true};
+    for (const [term,value] of Object.entries(fields)) {
+        const id=await resolveProperty(term);
+        payload[term]=propValue(value).map(v=>({...v,property_id:id}));
     }
-
     return payload;
 }
-
-async function linkTaskToUser(
-    userId,
-    taskId,
-    remove = false
-) {
-    const user = await apiRequest(
-        'items/' + encodeURIComponent(userId)
-    );
-
-    const existing = (
-        user['artinq:realise'] || []
-    ).map(x =>
-        Number(x.value_resource_id ?? x['o:id'])
-    ).filter(Number.isFinite);
-
-    const next = remove
-        ? existing.filter(id => id !== Number(taskId))
-        : [...new Set([...existing, Number(taskId)])];
-
-    const propertyId = await resolveProperty(
-        'artinq:realise'
-    );
-
-    const values = next.map(id => ({
-        type: 'resource',
-        property_id: propertyId,
-        value_resource_id: id
-    }));
-
-    await apiRequest(
-        'items/' + encodeURIComponent(userId),
-        'PATCH',
-        { 'artinq:realise': values }
-    );
+async function linkTaskToUser(userId, taskId, remove=false) {
+    const user=await apiRequest('items/'+encodeURIComponent(userId));
+    const existing=(user['artinq:realise']||[]).map(x=>Number(x.value_resource_id ?? x['o:id'])).filter(Number.isFinite);
+    const next=remove?existing.filter(id=>id!==Number(taskId)):[...new Set([...existing,Number(taskId)])];
+    const propertyId=await resolveProperty('artinq:realise');
+    const values=next.map(id=>({type:'resource',property_id:propertyId,value_resource_id:id}));
+    await apiRequest('items/'+encodeURIComponent(userId),'PATCH',{'artinq:realise':values});
 }
-
-// CRUD : DÉMONSTRATION OU API
-
-async function requeteAPI(
-    method,
-    type,
-    id = null,
-    data = null
-) {
-    if (mode === 'readonly') {
-        throw new Error(
-            'Lecture seule : modification interdite.'
-        );
-    }
-
+async function requeteAPI(method,type,id=null,data=null) {
+    if (mode === 'readonly') throw new Error('Lecture seule : aucune modification autorisée.');
     if (mode === 'demo') {
-        if (type === 'user') {
-            if (method === 'POST') {
-                db.users.push({
-                    id: demoNextId(),
-                    name: data.name
-                });
-            }
-
-            if (method === 'PATCH') {
-                const user = db.users.find(
-                    x => x.id === String(id)
-                );
-                if (user) user.name = data.name;
-            }
-
-            if (method === 'DELETE') {
-                db.users = db.users.filter(
-                    x => x.id !== String(id)
-                );
-            }
+        if (type==='user') {
+            if(method==='POST') db.users.push({id:demoNextId(),name:data.name});
+            if(method==='PATCH') db.users.find(x=>x.id===String(id)).name=data.name;
+            if(method==='DELETE') db.users=db.users.filter(x=>x.id!==String(id));
+        } else {
+            if(method==='POST') db.tasks.push({...data,id:demoNextId(),userId:String(data.userId)});
+            if(method==='PATCH') db.tasks.find(x=>x.id===String(id)).name=data.name;
+            if(method==='DELETE') db.tasks=db.tasks.filter(x=>x.id!==String(id));
         }
-
-        if (type === 'task') {
-            if (method === 'POST') {
-                db.tasks.push({
-                    ...data,
-                    id: demoNextId(),
-                    userId: String(data.userId)
-                });
-            }
-
-            if (method === 'PATCH') {
-                const task = db.tasks.find(
-                    x => x.id === String(id)
-                );
-                if (task) task.name = data.name;
-            }
-
-            if (method === 'DELETE') {
-                db.tasks = db.tasks.filter(
-                    x => x.id !== String(id)
-                );
-            }
-        }
-
-        demoSave();
-        return;
+        demoSave(); return;
     }
-
-    if (type === 'user') {
-        if (method === 'POST') {
-            return apiRequest(
-                'items',
-                'POST',
-                await omekaPayload({
-                    'dcterms:title': data.name,
-                    'artinq:nom': data.name
-                }, CLASSE_UTILISATEUR)
-            );
-        }
-
-        if (method === 'PATCH') {
-            return apiRequest(
-                'items/' + id,
-                'PATCH',
-                await omekaPayload({
-                    'dcterms:title': data.name,
-                    'artinq:nom': data.name
-                }, CLASSE_UTILISATEUR)
-            );
-        }
-
-        if (method === 'DELETE') {
-            return apiRequest(
-                'items/' + id,
-                'DELETE'
-            );
-        }
+    if (type==='user') {
+        if(method==='POST') return apiRequest('items','POST',await omekaPayload({'dcterms:title':data.name,'artinq:nom':data.name},CLASSE_UTILISATEUR));
+        if(method==='PATCH') return apiRequest('items/'+id,'PATCH',await omekaPayload({'dcterms:title':data.name,'artinq:nom':data.name},CLASSE_UTILISATEUR));
+        if(method==='DELETE') return apiRequest('items/'+id,'DELETE');
     }
-
-    if (type === 'task') {
-        if (method === 'POST') {
-            const payload = await omekaPayload({
-                'dcterms:title': data.name,
-                'artinq:nomTache': data.name,
-                'artinq:frequence': data.frequency,
-                'artinq:appreciation': data.appreciation,
-                'artinq:tempsNecessaire': data.time,
-                'artinq:procrastination':
-                    data.procrastination,
-                'artinq:niveauExpertise':
-                    data.expertise
-            }, CLASSE_TACHE);
-
-            const created = await apiRequest(
-                'items', 'POST', payload
-            );
-
-            try {
-                await linkTaskToUser(
-                    data.userId,
-                    created['o:id']
-                );
-            } catch (error) {
-                throw new Error(
-                    'Tâche créée, mais association ' +
-                    'utilisateur impossible : ' +
-                    error.message
-                );
-            }
-
+    if (type==='task') {
+        if(method==='POST') {
+            const payload=await omekaPayload({'dcterms:title':data.name,'artinq:nomTache':data.name,
+                'artinq:frequence':data.frequency,'artinq:appreciation':data.appreciation,
+                'artinq:tempsNecessaire':data.time,'artinq:procrastination':data.procrastination,
+                'artinq:niveauExpertise':data.expertise},CLASSE_TACHE);
+            const created=await apiRequest('items','POST',payload);
+            try { await linkTaskToUser(data.userId,created['o:id']); }
+            catch(error) {throw new Error(`Tâche créée (ID ${created['o:id']}) mais liaison utilisateur non réalisée : ${error.message}`);}
             return created;
         }
-
-        if (method === 'PATCH') {
-            return apiRequest(
-                'items/' + id,
-                'PATCH',
-                await omekaPayload({
-                    'dcterms:title': data.name,
-                    'artinq:nomTache': data.name
-                }, CLASSE_TACHE)
-            );
-        }
-
-        if (method === 'DELETE') {
-            const task = db.tasks.find(
-                x => x.id === String(id)
-            );
-
-            if (task?.userId) {
-                await linkTaskToUser(
-                    task.userId, id, true
-                );
-            }
-
-            return apiRequest(
-                'items/' + id,
-                'DELETE'
-            );
+        if(method==='PATCH') return apiRequest('items/'+id,'PATCH',await omekaPayload({'dcterms:title':data.name,'artinq:nomTache':data.name},CLASSE_TACHE));
+        if(method==='DELETE') {
+            const task=db.tasks.find(x=>x.id===String(id));
+            if(task?.userId) await linkTaskToUser(task.userId,id,true);
+            return apiRequest('items/'+id,'DELETE');
         }
     }
-
     throw new Error('Opération non reconnue.');
 }
-
-// AFFICHAGE DES UTILISATEURS
-
 function afficherUtilisateurs() {
-    const liste = $('user-list');
-    liste.replaceChildren();
-
-    $('user-count').textContent =
-        `(${db.users.length})`;
-
-    if (!db.users.length) {
-        liste.append(
-            element(
-                'div',
-                'Aucun utilisateur trouvé.',
-                'empty'
-            )
-        );
-        return;
-    }
-
-    for (const user of db.users) {
-        const card = element(
-            'article', undefined, 'record'
-        );
-
-        card.append(
-            element('h3', user.name || 'Sans nom')
-        );
-
-        const count = db.tasks.filter(
-            t => t.userId === user.id
-        ).length;
-
-        card.append(
-            element('p', `${count} tâche(s) associée(s)`)
-        );
-
-        const actions = element(
-            'div', undefined, 'actions'
-        );
-
-        actions.append(
-            boutonAction(
-                'Modifier',
-                'edit',
-                () => modifierUtilisateur(user)
-            ),
-            boutonAction(
-                'Supprimer',
-                'delete',
-                () => supprimerUtilisateur(user)
-            )
-        );
-
-        card.append(actions);
-        liste.append(card);
+    const liste=$('user-list');liste.replaceChildren();$('user-count').textContent=`(${db.users.length})`;
+    if(!db.users.length) {liste.append(element('div','Aucun utilisateur trouvé.','empty'));return;}
+    for(const user of db.users) {
+        const card=element('article',undefined,'record');card.append(element('h3',user.name||'Sans nom'));
+        card.append(element('p',`${db.tasks.filter(t=>t.userId===user.id).length} tâche(s) associée(s)`));
+        const actions=element('div',undefined,'actions');
+        actions.append(boutonAction('Modifier','edit',()=>modifierUtilisateur(user)),boutonAction('Supprimer','delete',()=>supprimerUtilisateur(user)));
+        card.append(actions);liste.append(card);
     }
 }
-
-// AFFICHAGE DES TÂCHES
-
 function afficherTaches() {
-    const liste = $('task-list');
-    liste.replaceChildren();
+    const liste=$('task-list');liste.replaceChildren();$('task-count').textContent=`(${db.tasks.length})`;
+    if(!db.tasks.length) {liste.append(element('div','Aucune tâche trouvée.','empty'));return;}
+    for(const task of db.tasks) {
+        const card=element('article',undefined,'record');card.append(element('h3',task.name||'Sans nom'));
+        card.append(element('span',db.users.find(x=>x.id===task.userId)?.name||'Utilisateur non associé','pill'));
+        for(const s of [`Fréquence : ${task.frequency}`,`Appréciation : ${task.appreciation}`,`Temps nécessaire : ${task.time} min`,`Procrastination : ${task.procrastination}`,`Niveau d'expertise : ${task.expertise}`]) card.append(element('p',s));
+        const actions=element('div',undefined,'actions');
+        actions.append(boutonAction('Modifier','edit',()=>modifierTache(task)),boutonAction('Supprimer','delete',()=>supprimerTache(task)));
+        card.append(actions);liste.append(card);
+    }
+}
+function remplirUtilisateurs() {
+    const select=$('task-user'),old=select.value;select.replaceChildren(new Option('Choisir un utilisateur',''));
+    for(const user of db.users) select.append(new Option(user.name||`Utilisateur ${user.id}`,user.id));
+    if(db.users.some(x=>x.id===old)) select.value=old;
+}
+function render() {afficherUtilisateurs();afficherTaches();remplirUtilisateurs();updateButtons();}
+async function refresh() {await chargerDonneesOmeka();}
 
-    $('task-count').textContent =
-        `(${db.tasks.length})`;
+$('login-form').addEventListener('submit', async e => {
+    e.preventDefault();
 
-    if (!db.tasks.length) {
-        liste.append(
-            element(
-                'div',
-                'Aucune tâche trouvée.',
-                'empty'
-            )
-        );
+    $('login-error').textContent = '';
+
+    apiBase = $('api-address').value.trim().replace(/\/+$/, '');
+    identity = $('key-identity').value.trim();
+    credential = $('key-credential').value;
+
+    if (!identity || !credential) {
+        $('login-error').textContent =
+            'Renseigne les deux clés API.';
         return;
     }
 
-    for (const task of db.tasks) {
-        const card = element(
-            'article', undefined, 'record'
-        );
+    const pageIsHttps = window.location.protocol === 'https:';
+    const apiIsHttp = apiBase.startsWith('http://');
 
-        card.append(
-            element('h3', task.name || 'Sans nom')
-        );
+    if (pageIsHttps && apiIsHttp) {
+        identity = '';
+        credential = '';
+        $('key-credential').value = '';
 
-        const user = db.users.find(
-            x => x.id === task.userId
-        );
+        $('login-error').textContent =
+            'Connexion bloquée : cette page est en HTTPS, ' +
+            'mais ton API Omeka S est en HTTP. ' +
+            'Ouvre http://localhost/artificial-inquiries/response.html ' +
+            'sur ton ordinateur avec WampServer démarré. ' +
+            'Le professeur ne peut pas accéder à ton localhost.';
 
-        card.append(
-            element(
-                'span',
-                user?.name || 'Utilisateur non associé',
-                'pill'
-            )
-        );
-
-        const informations = [
-            `Fréquence : ${task.frequency}`,
-            `Appréciation : ${task.appreciation}`,
-            `Temps nécessaire : ${task.time} min`,
-            `Procrastination : ${task.procrastination}`,
-            `Niveau d'expertise : ${task.expertise}`
-        ];
-
-        for (const info of informations) {
-            card.append(element('p', info));
-        }
-
-        const actions = element(
-            'div', undefined, 'actions'
-        );
-
-        actions.append(
-            boutonAction(
-                'Modifier',
-                'edit',
-                () => modifierTache(task)
-            ),
-            boutonAction(
-                'Supprimer',
-                'delete',
-                () => supprimerTache(task)
-            )
-        );
-
-        card.append(actions);
-        liste.append(card);
-    }
-}
-
-// LISTE DES UTILISATEURS POUR LES TÂCHES
-
-function remplirUtilisateurs() {
-    const select = $('task-user');
-    const old = select.value;
-
-    select.replaceChildren(
-        new Option('Choisir un utilisateur', '')
-    );
-
-    for (const user of db.users) {
-        select.append(
-            new Option(
-                user.name || `Utilisateur ${user.id}`,
-                user.id
-            )
-        );
+        return;
     }
 
-    if (db.users.some(x => x.id === old)) {
-        select.value = old;
+    if (
+        !apiBase.startsWith('https://') &&
+        !apiBase.startsWith('http://localhost') &&
+        !apiBase.startsWith('http://127.0.0.1')
+    ) {
+        $('login-error').textContent =
+            'Utilise une adresse HTTPS pour protéger tes clés API.';
+        return;
     }
-}
 
-function render() {
-    afficherUtilisateurs();
-    afficherTaches();
-    remplirUtilisateurs();
-    updateButtons();
-}
+    mode = 'omeka';
 
-async function refresh() {
-    await chargerDonneesOmeka();
-}
+    try {
+        // Vérification de l'accès à l'API Omeka S.
+        // On n'utilise plus /users/me, qui renvoyait HTTP 404.
 
-// CONNEXION OMEKA S
+        const test = await apiRequest('items?per_page=1');
 
-$('login-form').addEventListener(
-    'submit',
-    async event => {
-        event.preventDefault();
-
-        $('login-error').textContent = '';
-
-        apiBase = $('api-address')
-            .value.trim().replace(/\/+$/, '');
-
-        identity = $('key-identity').value.trim();
-        credential = $('key-credential').value;
-
-        if (!identity || !credential) {
-            $('login-error').textContent =
-                'Renseigne les deux clés API.';
-            return;
-        }
-
-        if (
-            !apiBase.startsWith('https://') &&
-            !apiBase.startsWith('http://localhost') &&
-            !apiBase.startsWith('http://127.0.0.1')
-        ) {
-            $('login-error').textContent =
-                'Utilise HTTPS pour protéger tes clés.';
-            return;
-        }
-
-        mode = 'omeka';
-
-        try {
-            const me = await apiRequest('users/me');
-
-            if (!me || !me['o:id']) {
-                throw new Error(
-                    'Compte Omeka S non vérifié.'
-                );
-            }
-
-            await chargerDonneesOmeka();
-
-            $('key-identity').value = '';
-            $('key-credential').value = '';
-
-            showApp(
-                'Connectée à Omeka S — ' +
-                (me['o:name'] || 'compte vérifié')
+        if (!Array.isArray(test)) {
+            throw new Error(
+                'Réponse inattendue de l’API Omeka S.'
             );
-        } catch (error) {
-            mode = null;
-            identity = '';
-            credential = '';
-
-            $('login-error').textContent =
-                error.message;
         }
-    }
-);
 
-// LECTURE SEULE
-
-$('readonly-login').addEventListener(
-    'click',
-    async () => {
-        $('login-error').textContent = '';
-
-        apiBase = $('api-address')
-            .value.trim().replace(/\/+$/, '');
-
-        mode = 'readonly';
-        identity = '';
-        credential = '';
-
-        try {
-            await chargerDonneesOmeka();
-            showApp('Omeka S — lecture seule');
-        } catch (error) {
-            mode = null;
-
-            $('login-error').textContent =
-                error.message;
-        }
-    }
-);
-
-// DÉMONSTRATION
-
-$('demo-login').addEventListener(
-    'click',
-    async () => {
-        mode = 'demo';
-        identity = '';
-        credential = '';
-
+        // Chargement des utilisateurs et des tâches.
         await chargerDonneesOmeka();
 
+        // Effacement des clés dans les champs du formulaire.
+        $('key-credential').value = '';
+        $('key-identity').value = '';
+
+        // Affichage de l'application.
         showApp(
-            'Démonstration — données du navigateur'
+            'Omeka S accessible — droits d’écriture à vérifier'
         );
-    }
-);
 
-// DÉCONNEXION
-
-$('logout-button').addEventListener(
-    'click',
-    () => {
+    } catch (err) {
         mode = null;
         identity = '';
         credential = '';
-        apiBase = '';
 
-        rawUsers = [];
-        rawTasks = [];
-        propertyIds = {};
-        db = { users: [], tasks: [] };
-
-        $('app-screen').hidden = true;
-        $('login-screen').hidden = false;
-
-        $('login-error').textContent = '';
-        $('key-identity').value = '';
-        $('key-credential').value = '';
-
-        render();
+        $('login-error').textContent = err.message;
     }
-);
+});
 
-// AJOUTER UN UTILISATEUR
-
-$('user-form').addEventListener(
-    'submit',
-    async event => {
-        event.preventDefault();
-
-        const name = $('user-name').value.trim();
-        if (!name) return;
-
-        try {
-            await requeteAPI(
-                'POST', 'user', null, { name }
-            );
-
-            $('user-form').reset();
-            await refresh();
-
-            alert('Utilisateur ajouté !');
-        } catch (error) {
-            alert('Erreur : ' + error.message);
-        }
-    }
-);
-
-// AJOUTER UNE TÂCHE
-
-$('task-form').addEventListener(
-    'submit',
-    async event => {
-        event.preventDefault();
-
-        const name = $('task-name').value.trim();
-        const userId = $('task-user').value;
-
-        if (!name || !userId) {
-            alert(
-                'Choisis un utilisateur et un nom de tâche.'
-            );
-            return;
-        }
-
-        const data = {
-            name,
-            userId,
-            frequency: $('task-frequency').value,
-            appreciation: $('task-appreciation').value,
-            time: Number($('task-time').value),
-            procrastination:
-                $('task-procrastination').value,
-            expertise: $('task-expertise').value
-        };
-
-        try {
-            await requeteAPI(
-                'POST', 'task', null, data
-            );
-
-            $('task-form').reset();
-            await refresh();
-
-            alert('Tâche ajoutée !');
-        } catch (error) {
-            alert('Erreur : ' + error.message);
-        }
-    }
-);
-
-// MODIFIER UN UTILISATEUR
-
+$('readonly-login').addEventListener('click',async()=>{
+    $('login-error').textContent='';apiBase=$('api-address').value.trim().replace(/\/+$/,'');mode='readonly';identity='';credential='';
+    try {await chargerDonneesOmeka();showApp('Omeka S — lecture seule');}
+    catch(err){mode=null;$('login-error').textContent=err.message;}
+});
+$('demo-login').addEventListener('click',async()=>{
+    mode='demo';identity='';credential='';await chargerDonneesOmeka();showApp('Démonstration locale au navigateur — pas de connexion Omeka S');
+});
+$('logout-button').addEventListener('click',()=>{
+    mode=null;identity='';credential='';apiBase='';rawUsers=[];rawTasks=[];propertyIds={};db={users:[],tasks:[]};
+    $('app-screen').hidden=true;$('login-screen').hidden=false;$('login-error').textContent='';
+    $('key-identity').value='';$('key-credential').value='';render();
+});
+$('user-form').addEventListener('submit',async e=>{
+    e.preventDefault();const name=$('user-name').value.trim();if(!name)return;
+    try {await requeteAPI('POST','user',null,{name});$('user-form').reset();await refresh();alert('Utilisateur ajouté !');}
+    catch(err){alert('Erreur : '+err.message);}
+});
+$('task-form').addEventListener('submit',async e=>{
+    e.preventDefault();const name=$('task-name').value.trim(),userId=$('task-user').value;
+    if(!name||!userId){alert('Choisis un utilisateur et un nom de tâche.');return;}
+    const data={name,userId,frequency:$('task-frequency').value,appreciation:$('task-appreciation').value,
+        time:Number($('task-time').value),procrastination:$('task-procrastination').value,expertise:$('task-expertise').value};
+    try {await requeteAPI('POST','task',null,data);$('task-form').reset();await refresh();alert('Tâche ajoutée !');}
+    catch(err){alert('Erreur : '+err.message);}
+});
 async function modifierUtilisateur(user) {
-    const val = prompt(
-        "Nouveau nom de l'utilisateur :",
-        user.name
-    );
-
-    if (val === null) return;
-
-    const name = val.trim();
-
-    if (!name) {
-        alert('Nom obligatoire.');
-        return;
-    }
-
-    if (name === user.name) return;
-
-    try {
-        await requeteAPI(
-            'PATCH', 'user', user.id, { name }
-        );
-
-        await refresh();
-        alert('Utilisateur modifié !');
-    } catch (error) {
-        alert('Erreur : ' + error.message);
-    }
+    const val=prompt("Nouveau nom de l'utilisateur :",user.name);if(val===null)return;
+    const name=val.trim();if(!name){alert('Nom obligatoire.');return;}if(name===user.name)return;
+    try{await requeteAPI('PATCH','user',user.id,{name});await refresh();alert('Utilisateur modifié !');}
+    catch(err){alert('Erreur : '+err.message);}
 }
-
-// SUPPRIMER UN UTILISATEUR
-
 async function supprimerUtilisateur(user) {
-    if (db.tasks.some(
-        x => x.userId === user.id
-    )) {
-        alert(
-            'Supprime d’abord les tâches associées.'
-        );
-        return;
-    }
-
-    if (!confirm(
-        `Supprimer l'utilisateur « ${user.name} » ?`
-    )) return;
-
-    try {
-        await requeteAPI(
-            'DELETE', 'user', user.id
-        );
-
-        await refresh();
-        alert('Utilisateur supprimé !');
-    } catch (error) {
-        alert('Erreur : ' + error.message);
-    }
+    if(db.tasks.some(x=>x.userId===user.id)){alert('Supprime d’abord les tâches associées.');return;}
+    if(!confirm(`Supprimer l'utilisateur « ${user.name} » ?`))return;
+    try{await requeteAPI('DELETE','user',user.id);await refresh();alert('Utilisateur supprimé !');}
+    catch(err){alert('Erreur : '+err.message);}
 }
-
-// MODIFIER UNE TÂCHE
-
 async function modifierTache(task) {
-    const val = prompt(
-        'Nouveau nom de la tâche :',
-        task.name
-    );
-
-    if (val === null) return;
-
-    const name = val.trim();
-
-    if (!name) {
-        alert('Nom obligatoire.');
-        return;
-    }
-
-    if (name === task.name) return;
-
-    try {
-        await requeteAPI(
-            'PATCH', 'task', task.id, { name }
-        );
-
-        await refresh();
-        alert('Tâche modifiée !');
-    } catch (error) {
-        alert('Erreur : ' + error.message);
-    }
+    const val=prompt('Nouveau nom de la tâche :',task.name);if(val===null)return;
+    const name=val.trim();if(!name){alert('Nom obligatoire.');return;}if(name===task.name)return;
+    try{await requeteAPI('PATCH','task',task.id,{name});await refresh();alert('Tâche modifiée !');}
+    catch(err){alert('Erreur : '+err.message);}
 }
-
-// SUPPRIMER UNE TÂCHE
-
 async function supprimerTache(task) {
-    if (!confirm(
-        `Supprimer la tâche « ${task.name} » ?`
-    )) return;
-
-    try {
-        await requeteAPI(
-            'DELETE', 'task', task.id
-        );
-
-        await refresh();
-        alert('Tâche supprimée !');
-    } catch (error) {
-        alert('Erreur : ' + error.message);
-    }
+    if(!confirm(`Supprimer la tâche « ${task.name} » ?`))return;
+    try{await requeteAPI('DELETE','task',task.id);await refresh();alert('Tâche supprimée !');}
+    catch(err){alert('Erreur : '+err.message);}
 }
-
-// NAVIGATION ENTRE LES ONGLETS
-
-document.querySelectorAll('[data-tab]').forEach(
-    button => {
-        button.addEventListener('click', () => {
-            document.querySelectorAll(
-                '[data-tab]'
-            ).forEach(x => {
-                x.classList.toggle(
-                    'active', x === button
-                );
-            });
-
-            document.querySelectorAll(
-                '.panel'
-            ).forEach(x => {
-                x.classList.toggle(
-                    'active',
-                    x.id === button.dataset.tab
-                );
-            });
-        });
-    }
-);
-
-// DÉMARRAGE
-
+document.querySelectorAll('[data-tab]').forEach(button=>button.addEventListener('click',()=>{
+    document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===button));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===button.dataset.tab));
+}));
 render();
-
 </script>
+
 </body>
 </html>
