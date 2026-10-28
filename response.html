@@ -660,6 +660,42 @@ function openApp(label) {
   showPage("users");
 }
 
+async function checkGithubSession() {
+  try {
+    const response = await fetch(
+      CONFIG.authServer + "/auth/session.php",
+      { credentials: "include" }
+    );
+
+    if (!response.ok) return;
+
+    const session = await response.json();
+
+    if (
+      !session.authenticated ||
+      session.user?.provider !== "github"
+    ) return;
+
+    mode = "readonly";
+    keys = { identity: "", credential: "" };
+
+    openApp(
+      "GitHub : " + session.user.login +
+      " — Omeka S en lecture seule"
+    );
+
+    try {
+      await loadMetadata();
+      await loadData();
+    } catch (err) {
+      reportError(err);
+    }
+
+  } catch (err) {
+    console.error("Session GitHub :", err);
+  }
+}
+  
 async function connectOmeka(readOnly) {
   $("loginError").textContent = "";
 
@@ -858,6 +894,7 @@ $("logout").addEventListener("click",() => {
   $("loginScreen").classList.remove("hidden");
   $("loginError").textContent = "";
 });
+checkGithubSession();
 </script>
 </body>
 </html>
