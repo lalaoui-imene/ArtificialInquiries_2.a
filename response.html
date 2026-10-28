@@ -6,266 +6,352 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Artificial Inquiries — Exercice 2.a</title>
 <style>
-:root{--bleu:#244f95;--fond:#f3f6fb;--bord:#dce3ef}
-*{box-sizing:border-box}
-body{margin:0;background:var(--fond);color:#17243b;font-family:Arial,sans-serif}
-header{background:#172c53;color:white;padding:28px 6%}
-header h1{margin:0 0 8px}
-main{max-width:1150px;margin:28px auto;padding:0 18px}
-.card{background:white;border:1px solid var(--bord);border-radius:14px;padding:24px;margin-bottom:20px}
-h2{margin-top:0}
-button{background:var(--bleu);color:white;border:0;border-radius:8px;padding:11px 16px;cursor:pointer;font-size:14px}
-button:hover{opacity:.9}
-button.secondary{background:#e6edf8;color:var(--bleu)}
-button.danger{background:#b62c37}
-button:disabled{opacity:.5;cursor:not-allowed}
-input,select{width:100%;padding:11px;border:1px solid #c8d2e2;border-radius:8px;margin:6px 0 15px;font:inherit}
-label{display:block;font-weight:bold}
-.tabs,.actions{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
-.tab{flex:1;background:white;color:var(--bleu);border:1px solid #c8d2e2}
-.tab.active{background:var(--bleu);color:white}
-.grid{display:grid;grid-template-columns:350px 1fr;gap:20px}
-.item{border:1px solid var(--bord);padding:17px;border-radius:10px;margin-bottom:12px}
-.item h3{margin-top:0}
-.small{color:#5b6980;font-size:14px;line-height:1.6}
-.hidden{display:none!important}
-.notice{background:#eaf1ff;padding:15px;border-radius:10px;margin-bottom:18px}
-.error{color:#b42318;white-space:pre-wrap}
-.success{color:#137044}
-@media(max-width:750px){.grid{grid-template-columns:1fr}.tab{min-width:45%}}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #17243b;
+  background: #f2f5fb;
+}
+header {
+  padding: 28px 6%;
+  background: #172c53;
+  color: white;
+}
+header h1 { margin: 0 0 8px; }
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 18px;
+}
+.card {
+  padding: 26px;
+  margin-bottom: 20px;
+  background: white;
+  border: 1px solid #dce3ef;
+  border-radius: 15px;
+}
+h2 { margin-top: 0; }
+.tabs, .actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: #244f95;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+button:hover { opacity: .9; }
+button.secondary {
+  background: #e7edf7;
+  color: #244f95;
+}
+button.danger { background: #b42335; }
+.tab {
+  flex: 1;
+  background: white;
+  color: #244f95;
+  border: 1px solid #c8d4e6;
+}
+.tab.active {
+  background: #244f95;
+  color: white;
+}
+input, select {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 7px 0 15px;
+  border: 1px solid #c8d4e6;
+  border-radius: 8px;
+  font: inherit;
+}
+label { font-weight: bold; }
+.grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 20px;
+}
+.item {
+  border: 1px solid #dce3ef;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+.item h3 { margin-top: 0; }
+.small {
+  font-size: 14px;
+  color: #5c6c84;
+  line-height: 1.6;
+}
+.notice {
+  padding: 16px;
+  background: #eaf1ff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.error { color: #b42318; }
+.hidden { display: none !important; }
+@media(max-width: 750px) {
+  .grid { grid-template-columns: 1fr; }
+  .tab { min-width: 40%; }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<h1>Artificial Inquiries</h1>
-<p>Exercice 2.a — Gestion des utilisateurs et de leurs tâches</p>
+  <h1>Artificial Inquiries</h1>
+  <p>Exercice 2.a — Gestion des utilisateurs et des tâches</p>
 </header>
+
 <main>
 
-<section id="login" class="card">
-<h2>Connexion</h2>
-<p class="small">Bienvenue sur l'interface Artificial Inquiries. Les données proviennent de l'Omeka S commun.</p>
+<section class="card" id="loginScreen">
+  <h2>Connexion</h2>
+  <p>
+    Bienvenue sur Artificial Inquiries.
+    Les données proviennent de l'Omeka S commun.
+  </p>
 
-<div class="tabs" id="authTabs">
-<button class="tab active" data-provider="omeka">Omeka S</button>
-<button class="tab" data-provider="cas">CAS Paris 8</button>
-<button class="tab" data-provider="github">GitHub</button>
-<button class="tab" data-provider="google">Google</button>
-</div>
+  <div class="tabs" id="loginTabs">
+    <button class="tab active" data-provider="omeka">
+      Omeka S
+    </button>
+    <button class="tab" data-provider="cas">
+      CAS Paris 8
+    </button>
+    <button class="tab" data-provider="github">
+      GitHub
+    </button>
+    <button class="tab" data-provider="google">
+      Google
+    </button>
+  </div>
 
-<div id="omekaLogin">
-<form id="loginForm">
-<label for="apiUrl">Adresse de l'API Omeka S</label>
-<input id="apiUrl" type="url" required value="https://humanum-p8.fr/omk_artificialinquiries/api">
+  <div id="omekaPanel">
+    <form id="loginForm">
+      <label>Adresse de l'API Omeka S</label>
+      <input
+        id="apiUrl"
+        type="url"
+        value="https://humanum-p8.fr/omk_artificialinquiries/api"
+        required
+      >
 
-<label for="identity">key_identity</label>
-<input id="identity" autocomplete="off" required>
+      <label>key_identity</label>
+      <input id="identity" autocomplete="off" required>
 
-<label for="credential">key_credential</label>
-<input id="credential" type="password" autocomplete="off" required>
+      <label>key_credential</label>
+      <input
+        id="credential"
+        type="password"
+        autocomplete="off"
+        required
+      >
 
-<p class="small">Chaque étudiant utilise ses propres clés API Omeka S. Ne publie jamais ces clés dans GitHub.</p>
-<div class="actions">
-<button type="submit">Se connecter</button>
-<button type="button" class="secondary" id="readOnly">Accéder en lecture seule</button>
-</div>
-</form>
-</div>
+      <p class="small">
+        Chaque personne doit utiliser ses propres clés API.
+        Ne publie jamais ces clés sur GitHub.
+      </p>
 
-<div id="externalLogin" class="hidden">
-<h3 id="externalTitle"></h3>
-<p class="small">Cette méthode de connexion nécessite une passerelle serveur configurée pour ce site et autorisée par le fournisseur d'identité. Elle n'est pas encore activée.</p>
-<button type="button" disabled>Connexion non configurée</button>
-</div>
+      <button type="submit">
+        Se connecter avec Omeka S
+      </button>
 
-<hr>
-<button type="button" class="secondary" id="demoButton">Tester la démonstration locale</button>
-<p id="loginMessage" class="error" role="alert"></p>
+      <button type="button" class="secondary" id="publicAccess">
+        Accéder en lecture seule
+      </button>
+    </form>
+  </div>
+
+  <div id="externalPanel" class="hidden">
+    <h3 id="externalTitle"></h3>
+    <p id="externalDescription"></p>
+    <button id="externalButton">
+      Continuer
+    </button>
+  </div>
+
+  <hr>
+
+  <button class="secondary" id="demoButton">
+    Tester la démonstration locale
+  </button>
+
+  <p id="loginError" class="error"></p>
 </section>
 
-<section id="application" class="hidden">
-<div class="notice">
-<strong id="sessionInfo"></strong>
-<button type="button" class="secondary" id="logout" style="float:right">Déconnexion</button>
-<div style="clear:both"></div>
-</div>
+<section id="appScreen" class="hidden">
 
-<div class="tabs" id="pageTabs">
-<button class="tab active" data-page="users">Utilisateurs</button>
-<button class="tab" data-page="tasks">Tâches</button>
-</div>
+  <div class="notice">
+    <strong id="sessionLabel"></strong>
+    <button id="logout" class="secondary" style="float:right">
+      Déconnexion
+    </button>
+    <div style="clear:both"></div>
+  </div>
 
-<section id="usersPage">
-<div class="grid">
-<div class="card">
-<h2>Ajouter un utilisateur</h2>
-<form id="userForm">
-<label for="userName">Nom</label>
-<input id="userName" required placeholder="Ex. Imene">
-<button type="submit" class="writeControl">Ajouter l'utilisateur</button>
-</form>
-</div>
-<div class="card">
-<h2>Utilisateurs (<span id="userCount">0</span>)</h2>
-<div id="usersList"></div>
-</div>
-</div>
+  <div class="tabs">
+    <button class="tab active" id="usersTab">
+      Utilisateurs
+    </button>
+    <button class="tab" id="tasksTab">
+      Tâches
+    </button>
+  </div>
+
+  <section id="usersPage">
+    <div class="grid">
+      <div class="card">
+        <h2>Ajouter un utilisateur</h2>
+        <form id="userForm">
+          <label>Nom de l'utilisateur</label>
+          <input id="userName" required>
+          <button type="submit">Ajouter</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Liste des utilisateurs</h2>
+        <div id="usersList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tasksPage" class="hidden">
+    <div class="grid">
+      <div class="card">
+        <h2>Ajouter une tâche</h2>
+        <form id="taskForm">
+          <label>Utilisateur</label>
+          <select id="taskUser" required></select>
+
+          <label>Nom de la tâche</label>
+          <input id="taskName" required>
+
+          <label>Fréquence</label>
+          <select id="frequency">
+            <option>Quotidienne</option>
+            <option>Hebdomadaire</option>
+            <option>Mensuelle</option>
+            <option>Occasionnelle</option>
+          </select>
+
+          <label>Appréciation</label>
+          <select id="appreciation">
+            <option>J'aime</option>
+            <option>Neutre</option>
+            <option>Je n'aime pas</option>
+          </select>
+
+          <label>Temps nécessaire (minutes)</label>
+          <input id="duration" type="number" min="0" value="30">
+
+          <label>Procrastination</label>
+          <select id="procrastination">
+            <option>Jamais</option>
+            <option>Parfois</option>
+            <option>Souvent</option>
+          </select>
+
+          <label>Niveau d'expertise</label>
+          <select id="expertise">
+            <option>Débutant</option>
+            <option>Intermédiaire</option>
+            <option>Avancé</option>
+            <option>Expert</option>
+          </select>
+
+          <button type="submit">Ajouter la tâche</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Liste des tâches</h2>
+        <div id="tasksList"></div>
+      </div>
+    </div>
+  </section>
+
+  <p id="appError" class="error"></p>
 </section>
 
-<section id="tasksPage" class="hidden">
-<div class="grid">
-<div class="card">
-<h2>Ajouter une tâche</h2>
-<form id="taskForm">
-<label for="taskUser">Utilisateur</label>
-<select id="taskUser" required></select>
-
-<label for="taskName">Nom de la tâche</label>
-<input id="taskName" required placeholder="Ex. Rédiger un rapport">
-
-<label for="frequency">Fréquence</label>
-<select id="frequency">
-<option>Quotidienne</option>
-<option>Hebdomadaire</option>
-<option>Mensuelle</option>
-<option>Occasionnelle</option>
-</select>
-
-<label for="appreciation">Appréciation</label>
-<select id="appreciation">
-<option>J'aime</option>
-<option>Neutre</option>
-<option>Je n'aime pas</option>
-</select>
-
-<label for="duration">Temps nécessaire (minutes)</label>
-<input id="duration" type="number" min="0" value="30">
-
-<label for="procrastination">Procrastination</label>
-<select id="procrastination">
-<option>Jamais</option>
-<option>Parfois</option>
-<option>Souvent</option>
-</select>
-
-<label for="expertise">Niveau d'expertise</label>
-<select id="expertise">
-<option>Débutant</option>
-<option>Intermédiaire</option>
-<option>Avancé</option>
-<option>Expert</option>
-</select>
-
-<button type="submit" class="writeControl">Ajouter la tâche</button>
-</form>
-</div>
-<div class="card">
-<h2>Tâches (<span id="taskCount">0</span>)</h2>
-<div id="tasksList"></div>
-</div>
-</div>
-</section>
-
-<p id="appMessage" role="status"></p>
-</section>
 </main>
 
 <script>
 "use strict";
 
-/* =========================
-   CONFIGURATION
-========================= */
+const CONFIG = {
+  api: "https://humanum-p8.fr/omk_artificialinquiries/api",
 
-const DEFAULT_API =
-  "https://humanum-p8.fr/omk_artificialinquiries/api";
+  /*
+    À remplacer par l'adresse réelle
+    de ton serveur d'authentification.
+  */
+  authServer: "",
 
-/*
-Les libellés doivent correspondre aux modèles
-présents dans l'Omeka commun.
+  templates: {
+    user: ["Utilisateur – Imene", "Utilisateur - Imene"],
+    task: ["Tâche – Imene", "Tâche - Imene"]
+  },
 
-Si tes modèles portent un autre nom,
-modifie uniquement ces deux tableaux.
-*/
-const TEMPLATE_NAMES = {
-  user: ["Utilisateur – Imene", "Utilisateur - Imene"],
-  task: ["Tâche – Imene", "Tâche - Imene"]
-};
-
-const TERMS = {
-  name: "artinq:nom",
-  userTasks: "artinq:aPourTache",
-  taskOwner: "artinq:realiseePar",
-  frequency: "artinq:frequence",
-  appreciation: "artinq:appreciation",
-  duration: "artinq:tempsNecessaire",
-  procrastination: "artinq:procrastination",
-  expertise: "artinq:niveauExpertise"
+  terms: {
+    name: "artinq:nom",
+    userTasks: "artinq:aPourTache",
+    owner: "artinq:realiseePar",
+    frequency: "artinq:frequence",
+    appreciation: "artinq:appreciation",
+    duration: "artinq:tempsNecessaire",
+    procrastination: "artinq:procrastination",
+    expertise: "artinq:niveauExpertise"
+  }
 };
 
 const $ = id => document.getElementById(id);
 
-let apiBase = DEFAULT_API;
-let identity = "";
-let credential = "";
 let mode = "none";
+let keys = {identity:"",credential:""};
 let users = [];
 let tasks = [];
-let rawUsers = [];
-let rawTasks = [];
+let templates = {};
 let properties = {};
-let templates = {user:null,task:null};
-let demoCounter = 10;
+let demoId = 100;
 
-function errorMessage(err) {
+function errorText(err) {
   return err instanceof Error ? err.message : String(err);
 }
 
-function showError(err) {
-  $("appMessage").className = "error";
-  $("appMessage").textContent = errorMessage(err);
+function reportError(err) {
+  $("appError").textContent = errorText(err);
 }
 
-function clearMessage() {
-  $("appMessage").textContent = "";
-}
-
-function canWrite() {
+function writeAllowed() {
   return mode === "omeka" || mode === "demo";
 }
 
-function safeText(value) {
-  return String(value ?? "").replace(/[&<>"']/g, ch => ({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  })[ch]);
-}
+function apiUrl(path) {
+  const url = new URL(CONFIG.api + "/" + path);
 
-/* =========================
-   REQUÊTES API OMEKA S
-========================= */
-
-function apiEndpoint(path, authenticated = true) {
-  const url = new URL(
-    apiBase.replace(/\/+$/, "") + "/" + path
-  );
-
-  if (authenticated && mode === "omeka") {
-    url.searchParams.set("key_identity", identity);
-    url.searchParams.set("key_credential", credential);
+  if (mode === "omeka") {
+    url.searchParams.set("key_identity", keys.identity);
+    url.searchParams.set("key_credential", keys.credential);
   }
+
   return url.toString();
 }
 
-async function apiRequest(path, method = "GET", data = null, authenticated = true) {
+async function request(path, method = "GET", data = null) {
   const options = {
     method,
-    headers: {
-      "Accept": "application/json"
-    }
+    headers: {"Accept":"application/json"}
   };
 
   if (data !== null) {
@@ -273,28 +359,17 @@ async function apiRequest(path, method = "GET", data = null, authenticated = tru
     options.body = JSON.stringify(data);
   }
 
-  let response;
-
-  try {
-    response = await fetch(apiEndpoint(path, authenticated), options);
-  } catch {
-    throw new Error(
-      "Impossible de joindre l'API. Vérifie la connexion réseau " +
-      "et les autorisations CORS du serveur Omeka."
-    );
-  }
+  const response = await fetch(apiUrl(path), options);
 
   if (!response.ok) {
     let detail = "";
     try {
       const body = await response.json();
-      detail = body.errors
-        ? JSON.stringify(body.errors)
-        : (body.detail || body.title || "");
+      detail = JSON.stringify(body.errors || body.detail || "");
     } catch {}
 
     throw new Error(
-      "Erreur Omeka HTTP " + response.status +
+      "Erreur API " + response.status +
       (detail ? " : " + detail : "")
     );
   }
@@ -303,88 +378,59 @@ async function apiRequest(path, method = "GET", data = null, authenticated = tru
   return response.json();
 }
 
-async function allPages(resource) {
-  let result = [];
+async function getAll(path) {
+  const results = [];
 
   for (let page = 1; page <= 100; page++) {
-    const separator = resource.includes("?") ? "&" : "?";
-    const batch = await apiRequest(
-      resource + separator + "per_page=100&page=" + page
+    const separator = path.includes("?") ? "&" : "?";
+    const batch = await request(
+      path + separator + "per_page=100&page=" + page
     );
 
     if (!Array.isArray(batch)) {
       throw new Error("Réponse API inattendue.");
     }
 
-    result.push(...batch);
+    results.push(...batch);
 
-    if (batch.length < 100) return result;
+    if (batch.length < 100) return results;
   }
 
-  throw new Error(
-    "Trop de pages de résultats. Ajoute une pagination adaptée."
-  );
+  throw new Error("Trop de ressources à charger.");
 }
 
-/* =========================
-   MÉTADONNÉES COMMUNES
-========================= */
-
 async function loadMetadata() {
-  const [allProperties, allTemplates] = await Promise.all([
-    allPages("properties"),
-    allPages("resource_templates")
+  const [allTemplates, allProperties] = await Promise.all([
+    getAll("resource_templates"),
+    getAll("properties")
   ]);
-
-  properties = {};
-
-  for (const property of allProperties) {
-    if (property["o:term"]) {
-      properties[property["o:term"]] = Number(property["o:id"]);
-    }
-  }
 
   for (const type of ["user", "task"]) {
     const found = allTemplates.find(t =>
-      TEMPLATE_NAMES[type].includes(t["o:label"])
+      CONFIG.templates[type].includes(t["o:label"])
     );
 
     if (!found) {
       throw new Error(
-        "Modèle commun introuvable pour " + type +
-        ". Vérifie son libellé exact dans Omeka S."
+        "Modèle introuvable : " + CONFIG.templates[type][0]
       );
     }
 
     templates[type] = Number(found["o:id"]);
   }
 
-  const required = [
-    "dcterms:title",
-    TERMS.name,
-    TERMS.taskOwner,
-    TERMS.userTasks,
-    TERMS.frequency,
-    TERMS.appreciation,
-    TERMS.duration,
-    TERMS.procrastination,
-    TERMS.expertise
-  ];
+  properties = {};
 
-  for (const term of required) {
-    if (!properties[term]) {
-      throw new Error(
-        "Propriété absente du vocabulaire commun : " + term
-      );
-    }
-  }
+  allProperties.forEach(p => {
+    properties[p["o:term"]] = Number(p["o:id"]);
+  });
 }
 
-/* =========================
-   VALEURS OMEKA
-========================= */
-
 function literal(term, value) {
+  if (!properties[term]) {
+    throw new Error("Propriété Omeka introuvable : " + term);
+  }
+
   return [{
     type: "literal",
     property_id: properties[term],
@@ -392,371 +438,135 @@ function literal(term, value) {
   }];
 }
 
-function relation(term, ids) {
-  return ids.map(id => ({
+function resourceValue(term, id) {
+  if (!properties[term]) {
+    throw new Error("Propriété Omeka introuvable : " + term);
+  }
+
+  return [{
     type: "resource",
     property_id: properties[term],
     value_resource_id: Number(id)
-  }));
+  }];
 }
 
 function firstValue(item, term) {
-  const v = item[term]?.[0];
-  return v ? (v["@value"] ?? v["display_title"] ?? "") : "";
+  const value = item[term]?.[0];
+  return value?.["@value"] ??
+         value?.display_title ??
+         "";
 }
 
-function relatedIds(item, term) {
-  return (item[term] || [])
-    .map(v => Number(v.value_resource_id ?? v["o:id"]))
-    .filter(id => Number.isInteger(id) && id > 0);
+function resourceId(item, term) {
+  const value = item[term]?.[0];
+  return Number(value?.value_resource_id || 0);
 }
 
-function itemId(item) {
-  return Number(item["o:id"]);
-}
+async function loadData() {
+  const items = await getAll("items");
 
-function itemTemplateId(item) {
-  return Number(item["o:resource_template"]?.["o:id"]);
-}
-
-/* =========================
-   LECTURE DES RESSOURCES
-========================= */
-
-async function refresh() {
-  clearMessage();
-
-  if (mode === "demo") {
-    render();
-    return;
-  }
-
-  const items = await allPages("items");
-
-  rawUsers = items.filter(
-    item => itemTemplateId(item) === templates.user
+  const userItems = items.filter(item =>
+    Number(item["o:resource_template"]?.["o:id"]) === templates.user
   );
 
-  rawTasks = items.filter(
-    item => itemTemplateId(item) === templates.task
+  const taskItems = items.filter(item =>
+    Number(item["o:resource_template"]?.["o:id"]) === templates.task
   );
 
-  users = rawUsers.map(item => ({
-    id: itemId(item),
-    name: firstValue(item, TERMS.name) ||
+  users = userItems.map(item => ({
+    id: Number(item["o:id"]),
+    name: firstValue(item, CONFIG.terms.name) ||
           item["o:title"] || "Sans nom"
   }));
 
-  tasks = rawTasks.map(item => {
-    let ownerId = relatedIds(item, TERMS.taskOwner)[0] || null;
+  tasks = taskItems.map(item => {
+    let userId = resourceId(item, CONFIG.terms.owner);
 
-    if (!ownerId) {
-      const parent = rawUsers.find(user =>
-        relatedIds(user, TERMS.userTasks).includes(itemId(item))
+    if (!userId) {
+      const parent = userItems.find(user =>
+        (user[CONFIG.terms.userTasks] || []).some(
+          value => Number(value.value_resource_id) ===
+                   Number(item["o:id"])
+        )
       );
-      ownerId = parent ? itemId(parent) : null;
+      userId = parent ? Number(parent["o:id"]) : 0;
     }
 
     return {
-      id: itemId(item),
-      userId: ownerId,
-      name: firstValue(item, TERMS.name) ||
+      id: Number(item["o:id"]),
+      userId,
+      name: firstValue(item, CONFIG.terms.name) ||
             item["o:title"] || "Sans nom",
-      frequency: firstValue(item, TERMS.frequency),
-      appreciation: firstValue(item, TERMS.appreciation),
-      duration: firstValue(item, TERMS.duration),
-      procrastination: firstValue(item, TERMS.procrastination),
-      expertise: firstValue(item, TERMS.expertise)
+      frequency: firstValue(item, CONFIG.terms.frequency),
+      appreciation: firstValue(item, CONFIG.terms.appreciation),
+      duration: firstValue(item, CONFIG.terms.duration),
+      procrastination: firstValue(item, CONFIG.terms.procrastination),
+      expertise: firstValue(item, CONFIG.terms.expertise)
     };
   });
 
   render();
 }
 
-/* =========================
-   CRÉATION DES RESSOURCES
-========================= */
-
 function basePayload(type, name) {
   return {
-    "o:resource_template": {
-      "o:id": templates[type]
-    },
-    "o:is_public": true,
-    "dcterms:title": literal("dcterms:title", name),
-    [TERMS.name]: literal(TERMS.name, name)
+    "o:resource_template":{"o:id":templates[type]},
+    "o:is_public":true,
+    "dcterms:title":literal("dcterms:title", name),
+    [CONFIG.terms.name]:literal(CONFIG.terms.name, name)
   };
-}
-
-function taskProperties(data) {
-  return {
-    [TERMS.frequency]: literal(TERMS.frequency, data.frequency),
-    [TERMS.appreciation]: literal(TERMS.appreciation, data.appreciation),
-    [TERMS.duration]: literal(TERMS.duration, data.duration),
-    [TERMS.procrastination]: literal(
-      TERMS.procrastination, data.procrastination
-    ),
-    [TERMS.expertise]: literal(TERMS.expertise, data.expertise),
-    [TERMS.taskOwner]: relation(TERMS.taskOwner, [data.userId])
-  };
-}
-
-/*
-Omeka S peut exiger que les données de mise à jour
-contiennent les autres propriétés existantes.
-
-On recharge donc la ressource avant modification
-et on conserve ses métadonnées utiles.
-*/
-function existingProperties(item) {
-  const result = {};
-
-  for (const [key, value] of Object.entries(item)) {
-    if (
-      Array.isArray(value) &&
-      value.every(v => v && typeof v === "object") &&
-      properties[key]
-    ) {
-      result[key] = value.map(v => {
-        const id = properties[key];
-
-        if (v.type === "resource" ||
-            v.value_resource_id !== undefined) {
-          return {
-            type: "resource",
-            property_id: id,
-            value_resource_id:
-              Number(v.value_resource_id ?? v["o:id"])
-          };
-        }
-
-        if (v.type === "uri" || v["@id"]) {
-          return {
-            type: "uri",
-            property_id: id,
-            "@id": v["@id"],
-            "o:label": v["o:label"] || ""
-          };
-        }
-
-        return {
-          type: "literal",
-          property_id: id,
-          "@value": String(v["@value"] ?? ""),
-          ...(v["@language"]
-            ? {"@language":v["@language"]}
-            : {})
-        };
-      });
-    }
-  }
-
-  return result;
-}
-
-async function updateItem(id, changes) {
-  const old = await apiRequest("items/" + id);
-
-  const payload = {
-    ...existingProperties(old),
-    ...changes,
-    "o:resource_template": old["o:resource_template"],
-    "o:is_public": old["o:is_public"] !== false
-  };
-
-  if (old["o:resource_class"]) {
-    payload["o:resource_class"] = old["o:resource_class"];
-  }
-
-  return apiRequest("items/" + id, "PUT", payload);
-}
-
-async function updateUserTaskLinks(userId, taskId, add) {
-  const old = await apiRequest("items/" + userId);
-  const ids = relatedIds(old, TERMS.userTasks);
-
-  const next = add
-    ? [...new Set([...ids, Number(taskId)])]
-    : ids.filter(id => id !== Number(taskId));
-
-  await updateItem(userId, {
-    [TERMS.userTasks]: relation(TERMS.userTasks, next)
-  });
 }
 
 async function createUser(name) {
-  return apiRequest(
-    "items",
-    "POST",
-    basePayload("user", name)
-  );
+  return request("items", "POST", basePayload("user", name));
 }
 
 async function createTask(data) {
-  const payload = {
+  const t = CONFIG.terms;
+
+  return request("items", "POST", {
     ...basePayload("task", data.name),
-    ...taskProperties(data)
-  };
-
-  const created = await apiRequest("items", "POST", payload);
-  const newId = itemId(created);
-
-  try {
-    await updateUserTaskLinks(data.userId, newId, true);
-  } catch (err) {
-    throw new Error(
-      "Tâche créée (ID " + newId +
-      "), mais le lien inverse avec l'utilisateur " +
-      "n'a pas été enregistré : " + errorMessage(err)
-    );
-  }
-
-  return created;
+    [t.owner]:resourceValue(t.owner, data.userId),
+    [t.frequency]:literal(t.frequency, data.frequency),
+    [t.appreciation]:literal(t.appreciation, data.appreciation),
+    [t.duration]:literal(t.duration, data.duration),
+    [t.procrastination]:literal(t.procrastination, data.procrastination),
+    [t.expertise]:literal(t.expertise, data.expertise)
+  });
 }
 
-/* =========================
-   MODIFICATION ET SUPPRESSION
-========================= */
-
-async function editUser(user) {
-  const name = prompt("Nouveau nom :", user.name);
-
-  if (name === null || !name.trim()) return;
-
-  if (mode === "demo") {
-    user.name = name.trim();
-  } else {
-    await updateItem(user.id, {
-      "dcterms:title": literal("dcterms:title", name.trim()),
-      [TERMS.name]: literal(TERMS.name, name.trim())
-    });
-  }
-
-  await refresh();
-}
-
-async function editTask(task) {
-  const name = prompt("Nouveau nom de la tâche :", task.name);
-
-  if (name === null || !name.trim()) return;
-
-  const duration = prompt(
-    "Temps nécessaire (minutes) :", task.duration
-  );
-
-  if (duration === null) return;
-
-  if (!Number.isFinite(Number(duration)) || Number(duration) < 0) {
-    alert("Durée invalide.");
-    return;
-  }
-
-  if (mode === "demo") {
-    task.name = name.trim();
-    task.duration = Number(duration);
-  } else {
-    await updateItem(task.id, {
-      "dcterms:title": literal("dcterms:title", name.trim()),
-      [TERMS.name]: literal(TERMS.name, name.trim()),
-      [TERMS.duration]: literal(TERMS.duration, duration)
-    });
-  }
-
-  await refresh();
-}
-
-async function deleteTask(task) {
-  if (!confirm("Supprimer définitivement cette tâche ?")) return;
-
-  if (mode === "demo") {
-    tasks = tasks.filter(t => t.id !== task.id);
-  } else {
-    await apiRequest("items/" + task.id, "DELETE");
-
-    if (task.userId) {
-      try {
-        await updateUserTaskLinks(task.userId, task.id, false);
-      } catch (err) {
-        alert(
-          "La tâche a été supprimée, mais le lien utilisateur " +
-          "n'a pas pu être nettoyé : " + errorMessage(err)
-        );
-      }
-    }
-  }
-
-  await refresh();
-}
-
-/* =========================
-   DÉMONSTRATION LOCALE
-========================= */
-
-function startDemo() {
-  mode = "demo";
-
-  users = [
-    {id:1,name:"Imene"},
-    {id:2,name:"Étudiant 2"}
-  ];
-
-  tasks = [{
-    id:3,
-    userId:1,
-    name:"Rédiger un rapport",
-    frequency:"Hebdomadaire",
-    appreciation:"Neutre",
-    duration:60,
-    procrastination:"Parfois",
-    expertise:"Intermédiaire"
-  }];
-
-  openApp("Démonstration locale — aucune écriture dans Omeka");
-}
-
-/* =========================
-   AFFICHAGE
-========================= */
-
-function makeButton(text, css, callback) {
+function addButton(parent, text, css, callback) {
   const button = document.createElement("button");
   button.type = "button";
-  button.className = css;
   button.textContent = text;
+  button.className = css;
   button.addEventListener("click", async () => {
     try {
       button.disabled = true;
       await callback();
     } catch (err) {
-      showError(err);
+      reportError(err);
     } finally {
       button.disabled = false;
     }
   });
-  return button;
+  parent.appendChild(button);
 }
 
 function render() {
-  $("userCount").textContent = users.length;
-  $("taskCount").textContent = tasks.length;
+  const usersList = $("usersList");
+  const tasksList = $("tasksList");
+  const taskUser = $("taskUser");
 
-  const userList = $("usersList");
-  const taskList = $("tasksList");
-  const userSelect = $("taskUser");
-
-  userList.replaceChildren();
-  taskList.replaceChildren();
-  userSelect.replaceChildren();
+  usersList.replaceChildren();
+  tasksList.replaceChildren();
+  taskUser.replaceChildren();
 
   users.forEach(user => {
     const option = document.createElement("option");
     option.value = user.id;
     option.textContent = user.name;
-    userSelect.appendChild(option);
-
-    const count = tasks.filter(
-      task => task.userId === user.id
-    ).length;
+    taskUser.appendChild(option);
 
     const card = document.createElement("div");
     card.className = "item";
@@ -764,227 +574,250 @@ function render() {
     const title = document.createElement("h3");
     title.textContent = user.name;
 
-    const detail = document.createElement("p");
-    detail.textContent = count + " tâche(s) associée(s)";
+    const count = document.createElement("p");
+    count.textContent =
+      tasks.filter(t => t.userId === user.id).length +
+      " tâche(s)";
 
-    card.append(title, detail);
+    card.append(title, count);
 
-    const actions = document.createElement("div");
-    actions.className = "actions";
+    addButton(card, "Voir les tâches", "", async () => {
+      showPage("tasks");
+      document.querySelectorAll("#tasksList .item").forEach(el => {
+        el.hidden = Number(el.dataset.user) !== user.id;
+      });
+    });
 
-    actions.append(
-      makeButton("Voir les tâches", "", async () => {
-        showPage("tasks");
-        document.querySelectorAll(
-          "#tasksList .item"
-        ).forEach(element => {
-          element.hidden =
-            Number(element.dataset.userId) !== user.id;
-        });
-      })
-    );
-
-    if (canWrite()) {
-      actions.append(
-        makeButton("Modifier", "secondary", () => editUser(user))
-      );
-    }
-
-    card.append(actions);
-    userList.append(card);
+    usersList.appendChild(card);
   });
 
   tasks.forEach(task => {
     const owner = users.find(u => u.id === task.userId);
-
     const card = document.createElement("div");
     card.className = "item";
-    card.dataset.userId = task.userId ?? "";
+    card.dataset.user = task.userId;
 
     const title = document.createElement("h3");
     title.textContent = task.name;
-
-    card.append(title);
+    card.appendChild(title);
 
     const details = [
-      ["Utilisateur", owner?.name || "Non associé"],
-      ["Fréquence", task.frequency],
-      ["Appréciation", task.appreciation],
-      ["Temps", task.duration + " minutes"],
-      ["Procrastination", task.procrastination],
-      ["Expertise", task.expertise]
+      ["Utilisateur",owner?.name || "Non associé"],
+      ["Fréquence",task.frequency],
+      ["Appréciation",task.appreciation],
+      ["Temps",task.duration + " minutes"],
+      ["Procrastination",task.procrastination],
+      ["Expertise",task.expertise]
     ];
 
-    details.forEach(([label, value]) => {
+    details.forEach(([label,value]) => {
       const p = document.createElement("p");
       const strong = document.createElement("strong");
       strong.textContent = label + " : ";
-      p.append(strong, document.createTextNode(String(value ?? "")));
-      card.append(p);
+      p.append(strong,document.createTextNode(String(value)));
+      card.appendChild(p);
     });
 
-    if (canWrite()) {
-      const actions = document.createElement("div");
-      actions.className = "actions";
+    if (writeAllowed()) {
+      addButton(card,"Supprimer","danger",async () => {
+        if (!confirm("Supprimer cette tâche ?")) return;
 
-      actions.append(
-        makeButton("Modifier", "secondary", () => editTask(task)),
-        makeButton("Supprimer", "danger", () => deleteTask(task))
-      );
-
-      card.append(actions);
+        if (mode === "demo") {
+          tasks = tasks.filter(t => t.id !== task.id);
+          render();
+        } else {
+          await request("items/" + task.id,"DELETE");
+          await loadData();
+        }
+      });
     }
 
-    taskList.append(card);
+    tasksList.appendChild(card);
   });
 
-  if (!users.length) {
-    userList.textContent = "Aucun utilisateur.";
-  }
+  if (!users.length) usersList.textContent = "Aucun utilisateur.";
+  if (!tasks.length) tasksList.textContent = "Aucune tâche.";
 
-  if (!tasks.length) {
-    taskList.textContent = "Aucune tâche.";
-  }
-
-  document.querySelectorAll(".writeControl").forEach(button => {
-    button.disabled = !canWrite();
+  document.querySelectorAll(
+    "#userForm button, #taskForm button"
+  ).forEach(button => {
+    button.disabled = !writeAllowed();
   });
 }
 
 function showPage(page) {
-  $("usersPage").classList.toggle("hidden", page !== "users");
-  $("tasksPage").classList.toggle("hidden", page !== "tasks");
-
-  document.querySelectorAll("#pageTabs .tab").forEach(button => {
-    button.classList.toggle(
-      "active", button.dataset.page === page
-    );
-  });
-
+  $("usersPage").classList.toggle("hidden",page !== "users");
+  $("tasksPage").classList.toggle("hidden",page !== "tasks");
+  $("usersTab").classList.toggle("active",page === "users");
+  $("tasksTab").classList.toggle("active",page === "tasks");
   render();
 }
 
 function openApp(label) {
-  $("login").classList.add("hidden");
-  $("application").classList.remove("hidden");
-  $("sessionInfo").textContent = label;
+  $("loginScreen").classList.add("hidden");
+  $("appScreen").classList.remove("hidden");
+  $("sessionLabel").textContent = label;
   showPage("users");
 }
 
-/* =========================
-   CONNEXION
-========================= */
+async function connectOmeka(readOnly) {
+  $("loginError").textContent = "";
 
-async function connect(readOnly = false) {
-  $("loginMessage").textContent = "";
+  CONFIG.api = $("apiUrl").value.trim().replace(/\/+$/,"");
+  keys.identity = readOnly ? "" : $("identity").value.trim();
+  keys.credential = readOnly ? "" : $("credential").value.trim();
 
-  apiBase = $("apiUrl").value.trim().replace(/\/+$/, "");
-  identity = readOnly ? "" : $("identity").value.trim();
-  credential = readOnly ? "" : $("credential").value.trim();
-
-  if (!readOnly && (!identity || !credential)) {
-    throw new Error("Renseigne les deux clés API.");
+  if (!readOnly && (!keys.identity || !keys.credential)) {
+    throw new Error("Renseigne tes deux clés API.");
   }
 
   mode = readOnly ? "readonly" : "omeka";
 
   await loadMetadata();
-
-  /*
-  Ce test confirme la disponibilité de l'API,
-  pas à lui seul la validité des clés ou des droits.
-  Les droits d'écriture sont contrôlés par Omeka
-  lors des opérations POST, PUT et DELETE.
-  */
-  await refresh();
+  await loadData();
 
   openApp(
     readOnly
-      ? "Omeka commun — lecture seule"
-      : "Omeka commun — clés API renseignées"
+      ? "Omeka S commun — lecture seule"
+      : "Omeka S commun — accès par clés API"
   );
 }
 
-/* =========================
-   ÉVÉNEMENTS
-========================= */
+function startDemo() {
+  mode = "demo";
+  users = [
+    {id:1,name:"Imene"},
+    {id:2,name:"Étudiant 2"}
+  ];
+  tasks = [{
+    id:3,userId:1,name:"Rédiger un rapport",
+    frequency:"Hebdomadaire",
+    appreciation:"Neutre",
+    duration:60,
+    procrastination:"Parfois",
+    expertise:"Intermédiaire"
+  }];
+  openApp("Démonstration locale");
+}
 
-$("loginForm").addEventListener("submit", async event => {
-  event.preventDefault();
-
-  try {
-    await connect(false);
-  } catch (err) {
-    $("loginMessage").textContent = errorMessage(err);
+const providers = {
+  cas: {
+    title:"Connexion CAS Paris 8",
+    description:
+      "Tu seras redirigé vers la connexion universitaire Paris 8."
+  },
+  github: {
+    title:"Connexion GitHub",
+    description:
+      "Tu seras redirigé vers GitHub pour autoriser l'application."
+  },
+  google: {
+    title:"Connexion Google",
+    description:
+      "Tu seras redirigé vers Google pour choisir ton compte."
   }
-});
+};
 
-$("readOnly").addEventListener("click", async () => {
-  try {
-    await connect(true);
-  } catch (err) {
-    $("loginMessage").textContent = errorMessage(err);
-  }
-});
+let selectedProvider = "omeka";
 
-$("demoButton").addEventListener("click", startDemo);
-
-$("authTabs").addEventListener("click", event => {
+$("loginTabs").addEventListener("click", event => {
   const button = event.target.closest("[data-provider]");
   if (!button) return;
 
-  document.querySelectorAll("#authTabs .tab").forEach(tab => {
-    tab.classList.toggle("active", tab === button);
+  selectedProvider = button.dataset.provider;
+
+  document.querySelectorAll("#loginTabs .tab").forEach(tab => {
+    tab.classList.toggle("active",tab === button);
   });
 
-  const provider = button.dataset.provider;
-
-  $("omekaLogin").classList.toggle(
-    "hidden", provider !== "omeka"
+  $("omekaPanel").classList.toggle(
+    "hidden",selectedProvider !== "omeka"
   );
 
-  $("externalLogin").classList.toggle(
-    "hidden", provider === "omeka"
+  $("externalPanel").classList.toggle(
+    "hidden",selectedProvider === "omeka"
   );
 
-  $("externalTitle").textContent = {
-    cas:"Connexion CAS Paris 8",
-    github:"Connexion GitHub",
-    google:"Connexion Google"
-  }[provider] || "";
+  if (selectedProvider !== "omeka") {
+    $("externalTitle").textContent =
+      providers[selectedProvider].title;
+
+    $("externalDescription").textContent =
+      providers[selectedProvider].description;
+  }
 });
 
-$("pageTabs").addEventListener("click", event => {
-  const button = event.target.closest("[data-page]");
-  if (button) showPage(button.dataset.page);
+$("externalButton").addEventListener("click", () => {
+  if (!CONFIG.authServer) {
+    $("loginError").textContent =
+      "La passerelle d'authentification doit être configurée " +
+      "avant d'activer cette connexion.";
+    return;
+  }
+
+  const routes = {
+    cas:"/auth/cas",
+    github:"/auth/github",
+    google:"/auth/google"
+  };
+
+  const url = new URL(
+    routes[selectedProvider],
+    CONFIG.authServer
+  );
+
+  window.location.assign(url.href);
 });
 
-$("userForm").addEventListener("submit", async event => {
+$("loginForm").addEventListener("submit",async event => {
   event.preventDefault();
 
-  if (!canWrite()) return;
+  try {
+    await connectOmeka(false);
+  } catch (err) {
+    $("loginError").textContent = errorText(err);
+  }
+});
+
+$("publicAccess").addEventListener("click",async () => {
+  try {
+    await connectOmeka(true);
+  } catch (err) {
+    $("loginError").textContent = errorText(err);
+  }
+});
+
+$("demoButton").addEventListener("click",startDemo);
+
+$("usersTab").addEventListener("click",() => showPage("users"));
+$("tasksTab").addEventListener("click",() => showPage("tasks"));
+
+$("userForm").addEventListener("submit",async event => {
+  event.preventDefault();
+
+  if (!writeAllowed()) return;
 
   const name = $("userName").value.trim();
   if (!name) return;
 
   try {
     if (mode === "demo") {
-      users.push({id:++demoCounter,name});
+      users.push({id:++demoId,name});
+      render();
     } else {
       await createUser(name);
+      await loadData();
     }
-
     $("userForm").reset();
-    await refresh();
   } catch (err) {
-    showError(err);
+    reportError(err);
   }
 });
 
-$("taskForm").addEventListener("submit", async event => {
+$("taskForm").addEventListener("submit",async event => {
   event.preventDefault();
 
-  if (!canWrite()) return;
+  if (!writeAllowed()) return;
 
   const data = {
     userId:Number($("taskUser").value),
@@ -996,42 +829,34 @@ $("taskForm").addEventListener("submit", async event => {
     expertise:$("expertise").value
   };
 
-  if (!data.userId || !data.name) {
-    alert("Choisis un utilisateur et indique une tâche.");
-    return;
-  }
+  if (!data.userId || !data.name) return;
 
   try {
     if (mode === "demo") {
-      tasks.push({id:++demoCounter,...data});
+      tasks.push({id:++demoId,...data});
+      render();
     } else {
       await createTask(data);
+      await loadData();
     }
-
     $("taskForm").reset();
-    await refresh();
   } catch (err) {
-    showError(err);
+    reportError(err);
   }
 });
 
-$("logout").addEventListener("click", () => {
-  identity = "";
-  credential = "";
+$("logout").addEventListener("click",() => {
   mode = "none";
+  keys = {identity:"",credential:""};
   users = [];
   tasks = [];
-  rawUsers = [];
-  rawTasks = [];
-  properties = {};
-  templates = {user:null,task:null};
 
   $("identity").value = "";
   $("credential").value = "";
 
-  $("application").classList.add("hidden");
-  $("login").classList.remove("hidden");
-  $("loginMessage").textContent = "";
+  $("appScreen").classList.add("hidden");
+  $("loginScreen").classList.remove("hidden");
+  $("loginError").textContent = "";
 });
 </script>
 </body>
